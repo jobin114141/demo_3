@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waveyu Surf Camp | Tropical Surfing Retreat</title>
+  <meta name="description" content="Join Waveyu Surf Camp for an unforgettable tropical surf retreat. Experience top waves, world-class guidance, and lush eco-lodges.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="#" class="logo">Waveyu</a>
+        <span class="nav-date">18 May – 26 May</span>
+      </div>
+
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#camp">The Camp <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#team">The Team <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+        </li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="#contact" class="nav-contact-link">Contact</a>
+        <a href="#apply" class="btn btn-apply">Apply Now</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-bg-container">
+      <img src="images/hero_image.png" alt="Waveyu Surf Camp Aerial View" class="hero-bg">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-date">18 May – 26 May</div>
+      
+      <h1 class="hero-title">
+        Waveyu<br>Surf Camp
+      </h1>
+      
+      <div class="hero-actions">
+        <a href="#learn-more" class="btn btn-learn-more">Learn More</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom-bar">
+      <div class="surfer-stat">
+        <span class="stat-num">350+</span>
+        <span class="stat-text">surfers already caught waves with us</span>
+      </div>
+      
+     
+    </div>
+  </header>
+
+  <!-- Expeditions Section -->
+  <section id="expeditions">
+    <div class="section-header">
+      <span class="section-subtitle">Uncharted Waters</span>
+      <h2 class="section-title">Curated Surf Expeditions</h2>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="tab-btn active" data-filter="all">All Breaks</button>
+      <button class="tab-btn" data-filter="secret">Secret Reefs</button>
+      <button class="tab-btn" data-filter="intermediate">Guided Lagoons</button>
+      <button class="tab-btn" data-filter="pro">Pro Heavy Swells</button>
+    </div>
+
+    <div class="grid-cards">
+      <!-- Card 1 -->
+      <div class="card" data-category="secret">
+        <div class="card-image-wrap">
+          <img src="images/hero_image.png" alt="Verdant Palm Cove">
+          <span class="card-badge"><i class="fa-solid fa-lock"></i> Exclusive Access</span>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Verdant Palm Cove</h3>
+          <p class="card-desc">An overhead canopy of ancient palms dropping straight into turquoise barrel waves with hollow lefts.</p>
+          <div class="card-specs">
+            <div class="spec-item">
+              <span>Wave Height</span>
+              <strong>4 - 8 FT</strong>
+            </div>
+            <div class="spec-item">
+              <span>Skill Level</span>
+              <strong>All Levels</strong>
+            </div>
+            <div class="spec-item">
+              <span>Crowd Factor</span>
+              <strong>Zero (Private)</strong>
+            </div>
+          </div>
+          <a href="#reserve" class="btn btn-glass" style="width: 100%; justify-content: center;">Book Spot</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" data-category="pro">
+        <div class="card-image-wrap">
+          <img src="images/tropical_surf_break.png" alt="Emerald Reef Barrel">
+          <span class="card-badge"><i class="fa-solid fa-bolt"></i> Heavy Swell</span>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Emerald Reef Barrel</h3>
+          <p class="card-desc">Fast-pitching reef break over crystal deep water. Perfect for high-performance tube rides.</p>
+          <div class="card-specs">
+            <div class="spec-item">
+              <span>Wave Height</span>
+              <strong>6 - 12 FT</strong>
+            </div>
+            <div class="spec-item">
+              <span>Skill Level</span>
+              <strong>Advanced / Pro</strong>
+            </div>
+            <div class="spec-item">
+              <span>Crowd Factor</span>
+              <strong>Max 6 Surfers</strong>
+            </div>
+          </div>
+          <a href="#reserve" class="btn btn-glass" style="width: 100%; justify-content: center;">Book Spot</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" data-category="intermediate">
+        <div class="card-image-wrap">
+          <img src="images/surf_lodge.png" alt="Jungle Lagoon Point">
+          <span class="card-badge"><i class="fa-solid fa-spa"></i> Relaxed Flow</span>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Jungle Lagoon Point</h3>
+          <p class="card-desc">Long peelers wrapping gently around a palm-fringed point break, ideal for longboards and carving.</p>
+          <div class="card-specs">
+            <div class="spec-item">
+              <span>Wave Height</span>
+              <strong>3 - 6 FT</strong>
+            </div>
+            <div class="spec-item">
+              <span>Skill Level</span>
+              <strong>Beginner / Inter</strong>
+            </div>
+            <div class="spec-item">
+              <span>Crowd Factor</span>
+              <strong>Private Resort</strong>
+            </div>
+          </div>
+          <a href="#reserve" class="btn btn-glass" style="width: 100%; justify-content: center;">Book Spot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Features Section -->
+  <section id="experience" style="background: rgba(4, 14, 11, 0.5);">
+    <div class="section-header">
+      <span class="section-subtitle">Why Choose Verdant Surf</span>
+      <h2 class="section-title">The Ultimate Tropical Sanctuary</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-helicopter"></i>
+        </div>
+        <h3>Private Boat & Chopper Transfer</h3>
+        <p>Direct drop-offs to remote island wave breaks unaccessible by foot or road.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-video"></i>
+        </div>
+        <h3>4K Drone Video Coaching</h3>
+        <p>Daily aerial video analysis with professional WSL-certified surf coaches.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <h3>100% Off-Grid Luxury</h3>
+        <p>Solar-powered eco villas with ocean-front infinity pools and organic farm-to-table dining.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <h3>Custom Quiver Access</h3>
+        <p>Test handcrafted eco-epoxy surfboards shaped specifically for tropical reef breaks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Showcase Banner -->
+  <section id="retreats">
+    <div class="showcase-banner">
+      <div class="showcase-text">
+        <span class="section-subtitle">Bespoke Living</span>
+        <h2>Overhead Paradise & Private Villas</h2>
+        <p>Stay where the jungle meets the sea. Wake up to the roar of pristine waves right outside your terrace.</p>
+        
+        <ul class="checklist">
+          <li><i class="fa-solid fa-circle-check"></i> Oceanview infinity suites with private decks</li>
+          <li><i class="fa-solid fa-circle-check"></i> Daily massage therapy & thermal recovery baths</li>
+          <li><i class="fa-solid fa-circle-check"></i> All-inclusive gourmet chef meals & tropical elixirs</li>
+        </ul>
+
+        <a href="#reserve" class="btn btn-primary">Check Availability <i class="fa-solid fa-calendar-check"></i></a>
+      </div>
+
+      <div class="showcase-image">
+        <img src="images/hero_image.png" alt="Aerial Jungle Surf Sanctuary">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section id="reserve">
+    <div class="section-header">
+      <span class="section-subtitle">Start Your Journey</span>
+      <h2 class="section-title">Reserve Your Expedition</h2>
+    </div>
+
+    <div class="booking-container">
+      <form id="bookingForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nameInput"><i class="fa-solid fa-user"></i> Full Name</label>
+            <input type="text" id="nameInput" class="form-input" placeholder="e.g. Alex Morgan" required>
+          </div>
+
+          <div class="form-group">
+            <label for="emailInput"><i class="fa-solid fa-envelope"></i> Email Address</label>
+            <input type="email" id="emailInput" class="form-input" placeholder="alex@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="destSelect"><i class="fa-solid fa-location-dot"></i> Preferred Destination</label>
+            <select id="destSelect" class="form-select" required>
+              <option value="">Select Break...</option>
+              <option value="Verdant Palm Cove">Verdant Palm Cove (Secret Break)</option>
+              <option value="Emerald Reef Barrel">Emerald Reef Barrel (Advanced)</option>
+              <option value="Jungle Lagoon Point">Jungle Lagoon Point (All Levels)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="dateInput"><i class="fa-solid fa-calendar"></i> Target Date</label>
+            <input type="date" id="dateInput" class="form-input" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="notesInput"><i class="fa-solid fa-message"></i> Special Requirements / Surf Level</label>
+            <textarea id="notesInput" class="form-input" rows="4" placeholder="Tell us about your surfing experience or gear preferences..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;">
+          Submit Expedition Inquiry <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-badge">
+            <i class="fa-solid fa-water"></i>
+          </div>
+          <div class="logo-text">VERDANT<span>SURF</span></div>
+        </a>
+        <p>Curating world-class tropical surf adventures and sustainable eco-lodges along untouched island coastlines.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#expeditions">Expeditions</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#retreats">Eco Lodges</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="#expeditions">Palm Cove Reef</a></li>
+          <li><a href="#expeditions">Emerald Point</a></li>
+          <li><a href="#expeditions">Jungle Lagoon</a></li>
+          <li><a href="#expeditions">Secret Island</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <div style="display: flex; gap: 1rem; font-size: 1.25rem; margin-top: 0.5rem;">
+          <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-vimeo-v"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 VERDANT SURF EXPEDITIONS. All rights reserved.</p>
+      <p>Designed with tropical elegance &amp; eco-consciousness.</p>
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+      <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Verdant Surf 2026 Teaser</h3>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-sm); background: #000;">
+        <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Surf Teaser" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>
