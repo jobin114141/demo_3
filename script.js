@@ -1,8 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Navbar Effect on Scroll
+  // 1. Sticky Navbar Effect on Scroll (triggers after passing the hero section)
   const navbar = document.querySelector('.navbar');
+  const heroSection = document.querySelector('#hero');
+
+  // Automatically mark navbar as loaded after 2.5s initial entrance completes
+  setTimeout(() => {
+    if (navbar) navbar.classList.add('loaded');
+  }, 2500);
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    if (navbar && !navbar.classList.contains('loaded')) {
+      navbar.classList.add('loaded');
+    }
+    const heroHeight = heroSection ? heroSection.offsetHeight - 80 : 400;
+    if (window.scrollY >= heroHeight) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
