@@ -238,12 +238,25 @@ body {
   }
 }
 
+@keyframes fadeInDelayed {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-date {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
+  opacity: 0;
+  animation: fadeInDelayed 0.8s ease-out 1.2s forwards;
 }
 
 .hero-title {
@@ -276,6 +289,8 @@ body {
   font-size: 0.95rem;
   text-decoration: none;
   transition: var(--transition);
+  opacity: 0;
+  animation: fadeInDelayed 0.8s ease-out 1.2s forwards;
 }
 
 .btn-learn-more:hover {
