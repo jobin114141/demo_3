@@ -227,12 +227,24 @@ body {
   margin: auto auto;
 }
 
+@keyframes slideDownFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-date {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
+  animation: slideDownFromTop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero-title {
@@ -243,6 +255,7 @@ body {
   color: #ffffff;
   margin-bottom: 2rem;
   letter-spacing: -0.03em;
+  animation: slideDownFromTop 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero-actions {
