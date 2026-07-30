@@ -66,6 +66,19 @@ body {
   padding: 0.4rem 2.5rem;
   transition: var(--transition);
   background: transparent;
+  opacity: 0;
+  animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+}
+
+@keyframes navSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navbar.scrolled {
@@ -75,6 +88,8 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  animation: none;
 }
 
 .nav-container {
@@ -230,7 +245,7 @@ body {
 @keyframes slideDownFromTop {
   0% {
     opacity: 0;
-    transform: translateY(-90px);
+    transform: translateY(-70px);
   }
   100% {
     opacity: 1;
@@ -238,10 +253,21 @@ body {
   }
 }
 
-@keyframes fadeInDelayed {
+@keyframes fadeInSimple {
   0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes statSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
   }
   100% {
     opacity: 1;
@@ -256,7 +282,7 @@ body {
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
   opacity: 0;
-  animation: fadeInDelayed 0.8s ease-out 1.2s forwards;
+  animation: fadeInSimple 0.6s ease-out 0.1s forwards;
 }
 
 .hero-title {
@@ -267,7 +293,8 @@ body {
   color: #ffffff;
   margin-bottom: 2rem;
   letter-spacing: -0.03em;
-  animation: slideDownFromTop 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  animation: slideDownFromTop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
 
 .hero-actions {
@@ -290,7 +317,7 @@ body {
   text-decoration: none;
   transition: var(--transition);
   opacity: 0;
-  animation: fadeInDelayed 0.8s ease-out 1.2s forwards;
+  animation: fadeInSimple 0.6s ease-out 1.2s forwards;
 }
 
 .btn-learn-more:hover {
@@ -310,6 +337,8 @@ body {
   justify-content: center;
   align-items: flex-end;
   padding: 0 1rem;
+  opacity: 0;
+  animation: statSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
 }
 
 .surfer-stat {
