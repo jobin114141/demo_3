@@ -67,7 +67,7 @@ body {
   transition: var(--transition);
   background: transparent;
   opacity: 0;
-  animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+  animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards;
 }
 
 @keyframes navSlideDown {
@@ -282,7 +282,7 @@ body {
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
   opacity: 0;
-  animation: fadeInSimple 0.6s ease-out 0.1s forwards;
+  animation: fadeInSimple 0.6s ease-out 1.0s forwards;
 }
 
 .hero-title {
@@ -294,7 +294,7 @@ body {
   margin-bottom: 2rem;
   letter-spacing: -0.03em;
   opacity: 0;
-  animation: slideDownFromTop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  animation: slideDownFromTop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 }
 
 .hero-actions {
@@ -317,7 +317,7 @@ body {
   text-decoration: none;
   transition: var(--transition);
   opacity: 0;
-  animation: fadeInSimple 0.6s ease-out 1.2s forwards;
+  animation: fadeInSimple 0.6s ease-out 1.0s forwards;
 }
 
 .btn-learn-more:hover {
@@ -338,7 +338,7 @@ body {
   align-items: flex-end;
   padding: 0 1rem;
   opacity: 0;
-  animation: statSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+  animation: statSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards;
 }
 
 .surfer-stat {
