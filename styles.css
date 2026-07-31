@@ -1207,7 +1207,7 @@ body {
 
 .room-content-wrap {
   display: grid;
-  grid-template-columns: 1fr 260px;
+  grid-template-columns: 1fr 220px;
   gap: 1.5rem;
   align-items: center;
   padding-top: 1.25rem;
@@ -1266,7 +1266,7 @@ body {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  height: 195px;
+  height: 165px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
