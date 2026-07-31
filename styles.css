@@ -1129,9 +1129,28 @@ body {
 }
 
 .accordion-item {
+  position: relative;
   border-bottom: 1px solid #EFEFEA;
   padding: 1.5rem 0;
   transition: padding 0.3s ease;
+}
+
+.accordion-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #aec71e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-item:hover::after,
+.accordion-item.active::after {
+  transform: scaleX(1);
 }
 
 .accordion-item:first-child {
