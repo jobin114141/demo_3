@@ -250,4 +250,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     stayObserver.observe(staySection);
   }
+
+  // 12. Experience Section Scroll Animation
+  const experienceSection = document.querySelector('.experience-section');
+  if (experienceSection) {
+    const expObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          experienceSection.classList.add('animated');
+          expObserver.unobserve(experienceSection);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -80px 0px',
+      threshold: 0.15
+    });
+
+    expObserver.observe(experienceSection);
+  }
+
+  // 13. Fast Scroll Hiding for Right Side Cards while Left Column remains Fixed
+  const expCards = document.querySelectorAll('.exp-card');
+  if (expCards.length > 0) {
+    const handleCardsScroll = () => {
+      expCards.forEach((card, index) => {
+        if (index < expCards.length - 1) {
+          const rect = card.getBoundingClientRect();
+          // As card scrolls past top 320px, hide quickly over a sharp 80px window
+          if (rect.bottom < 320) {
+            const progress = Math.max(0, (rect.bottom - 180) / 80);
+            card.style.opacity = (progress * progress).toFixed(2);
+          } else {
+            card.style.opacity = '1';
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleCardsScroll, { passive: true });
+    handleCardsScroll();
+  }
+
+  // 14. Synchronized Scroll-Up when Card 4 reaches screen center
+  const expContainer = document.querySelector('.experience-container');
+  const experienceLeft = document.querySelector('.experience-left');
+  const card4 = document.querySelector('.exp-card-special-wrapper');
+  
+  if (expContainer && experienceLeft && card4) {
+    const handleScrollUnstick = () => {
+      const cardRect = card4.getBoundingClientRect();
+      const containerRect = expContainer.getBoundingClientRect();
+      const centerY = window.innerHeight / 2 - 80;
+      
+      if (cardRect.top <= centerY) {
+        if (experienceLeft.style.position !== 'absolute') {
+          const currentTopOffset = 75 - containerRect.top;
+          experienceLeft.style.position = 'absolute';
+          experienceLeft.style.top = `${currentTopOffset}px`;
+        }
+      } else {
+        if (experienceLeft.style.position === 'absolute') {
+          experienceLeft.style.position = 'sticky';
+          experienceLeft.style.top = '75px';
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScrollUnstick, { passive: true });
+    handleScrollUnstick();
+  }
 });
