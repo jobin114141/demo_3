@@ -232,4 +232,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // 11. Stay Section Sequential Scroll Animation (triggers ONLY when user scrolls to section)
+  const staySection = document.querySelector('.stay-section');
+  if (staySection) {
+    const stayObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          staySection.classList.add('animated');
+          stayObserver.unobserve(staySection);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -80px 0px',
+      threshold: 0.15
+    });
+
+    stayObserver.observe(staySection);
+  }
 });
