@@ -147,4 +147,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
     observer.observe(statsSection);
   }
+
+  // 7. Overview Section Sequential Scroll Animation
+  const overviewSection = document.querySelector('.overview-section');
+  if (overviewSection) {
+    const triggerOverviewAnimation = () => {
+      const rect = overviewSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9 && rect.bottom >= 0) {
+        overviewSection.classList.add('animated');
+      }
+    };
+
+    const overviewObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          overviewSection.classList.add('animated');
+          overviewObserver.unobserve(overviewSection);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    overviewObserver.observe(overviewSection);
+    // Initial check in case section is already in viewport on load
+    triggerOverviewAnimation();
+  }
+
+  // 8. Level Cards Selection Handler
+  const levelCards = document.querySelectorAll('.level-card');
+  levelCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const isSelected = card.classList.contains('selected');
+      levelCards.forEach(c => c.classList.remove('selected'));
+      if (!isSelected) {
+        card.classList.add('selected');
+      }
+    });
+  });
 });
