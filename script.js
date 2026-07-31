@@ -201,4 +201,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     levelsObserver.observe(levelsSection);
   }
+
+  // 10. Stay Section Accordion Toggle Handler
+  const accordionItems = document.querySelectorAll('.stay-accordion .accordion-item');
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    if (header) {
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        accordionItems.forEach(i => {
+          i.classList.remove('active');
+          const btnIcon = i.querySelector('.accordion-toggle-btn i');
+          if (btnIcon) {
+            btnIcon.classList.remove('fa-chevron-up');
+            btnIcon.classList.add('fa-chevron-down');
+          }
+        });
+
+        // Toggle clicked item
+        if (!isActive) {
+          item.classList.add('active');
+          const icon = item.querySelector('.accordion-toggle-btn i');
+          if (icon) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+          }
+        }
+      });
+    }
+  });
 });
