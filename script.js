@@ -183,4 +183,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 9. Levels Section Sequential Scroll Animation (triggers ONLY when user scrolls to section)
+  const levelsSection = document.querySelector('.levels-section');
+  if (levelsSection) {
+    const levelsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          levelsSection.classList.add('animated');
+          levelsObserver.unobserve(levelsSection);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -80px 0px',
+      threshold: 0.15
+    });
+
+    levelsObserver.observe(levelsSection);
+  }
 });

@@ -791,6 +791,13 @@ html, body {
   letter-spacing: -0.02em;
 }
 
+.levels-badge,
+.levels-title {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .levels-title .highlight-grey {
   color: #A0A09C;
   font-weight: 400;
@@ -805,12 +812,14 @@ html, body {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 0.92rem;
-  transition: transform 0.2s ease;
   padding-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 1.2s, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 1.2s;
 }
 
 .btn-see-program:hover {
-  transform: translateX(2px);
+  transform: translateY(0) translateX(2px);
 }
 
 .btn-see-program .program-arrow-circle {
@@ -844,6 +853,17 @@ html, body {
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   align-items: stretch;
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+
+.levels-section.animated .levels-badge,
+.levels-section.animated .levels-title,
+.levels-section.animated .levels-cards-grid,
+.levels-section.animated .btn-see-program {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .level-card {
