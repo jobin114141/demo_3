@@ -974,7 +974,7 @@ body {
 
 .level-card-divider {
   height: 1px;
-  background: #EFEFEA;
+  background: #D4D4CE;
   margin: 0.85rem 0 0.85rem 0;
   width: 100%;
 }
@@ -1130,7 +1130,7 @@ body {
 
 .accordion-item {
   position: relative;
-  border-bottom: 1px solid #EFEFEA;
+  border-bottom: 1px solid #D4D4CE;
   padding: 1.5rem 0;
   transition: padding 0.3s ease;
 }
