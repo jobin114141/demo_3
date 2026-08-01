@@ -269,17 +269,20 @@ document.addEventListener('DOMContentLoaded', () => {
     expObserver.observe(experienceSection);
   }
 
-  // 13. Fast Scroll Hiding for Right Side Cards while Left Column remains Fixed
+
+  // 13. Direct Scroll Fading for Top Cards in Experience Section
   const expCards = document.querySelectorAll('.exp-card');
   if (expCards.length > 0) {
     const handleCardsScroll = () => {
       expCards.forEach((card, index) => {
         if (index < expCards.length - 1) {
           const rect = card.getBoundingClientRect();
-          // As card scrolls past top 320px, hide quickly over a sharp 80px window
-          if (rect.bottom < 320) {
-            const progress = Math.max(0, (rect.bottom - 180) / 80);
-            card.style.opacity = (progress * progress).toFixed(2);
+          const fadeStart = 360;
+          const fadeEnd = 160;
+
+          if (rect.bottom < fadeStart) {
+            const progress = Math.max(0, Math.min(1, (rect.bottom - fadeEnd) / (fadeStart - fadeEnd)));
+            card.style.opacity = progress.toFixed(2);
           } else {
             card.style.opacity = '1';
           }
@@ -290,8 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleCardsScroll, { passive: true });
     handleCardsScroll();
   }
-
-  // 14. Synchronized Scroll-Up when Card 4 reaches screen center
+  // 14. Synchronized Scroll-Up when Card 4 reaches bottom alignment
   const expContainer = document.querySelector('.experience-container');
   const experienceLeft = document.querySelector('.experience-left');
   const card4 = document.querySelector('.exp-card-special-wrapper');
@@ -300,11 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleScrollUnstick = () => {
       const cardRect = card4.getBoundingClientRect();
       const containerRect = expContainer.getBoundingClientRect();
-      const centerY = window.innerHeight / 2 - 80;
       
-      if (cardRect.top <= centerY) {
+      if (cardRect.bottom <= window.innerHeight - 80) {
         if (experienceLeft.style.position !== 'absolute') {
-          const currentTopOffset = 75 - containerRect.top;
+          const currentTopOffset = Math.max(0, 75 - containerRect.top);
           experienceLeft.style.position = 'absolute';
           experienceLeft.style.top = `${currentTopOffset}px`;
         }
@@ -318,5 +319,38 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('scroll', handleScrollUnstick, { passive: true });
     handleScrollUnstick();
+  }
+
+  // ==========================================================================
+  // 16. Guaranteed 60fps Scroll-Driven Parallax Zoom for Ready CTA Image & Text
+  // ==========================================================================
+  const readySection = document.querySelector('.ready-cta-section');
+  const readyBgImg = document.querySelector('.ready-bg-img');
+  const readyContent = document.querySelector('.ready-content');
+
+  if (readySection && readyBgImg && readyContent) {
+    const handleReadyScroll = () => {
+      const rect = readySection.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      // When section is anywhere in viewport
+      if (rect.bottom > 0 && rect.top < windowH) {
+        const totalDist = windowH + rect.height;
+        const currentDist = windowH - rect.top;
+        const progress = Math.max(0, Math.min(1, currentDist / totalDist));
+
+        // Background Image zooms gently from 1.00x to 1.15x on scroll
+        const imgScale = (1.00 + (progress * 0.15)).toFixed(3);
+        readyBgImg.style.transform = `scale(${imgScale})`;
+
+        // Foreground Text shrinks smaller from 1.10x down to 0.86x as you scroll down
+        const textScale = (1.10 - (progress * 0.24)).toFixed(3);
+        const textY = (-15 + (progress * 30)).toFixed(1);
+        readyContent.style.transform = `translateY(${textY}px) scale(${textScale})`;
+      }
+    };
+
+    window.addEventListener('scroll', handleReadyScroll, { passive: true });
+    handleReadyScroll();
   }
 });
