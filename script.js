@@ -270,15 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // 13. Direct Scroll Fading for Top Cards in Experience Section
+  // 13. Direct Scroll Fading for Top Cards in Experience Section (body, soul, mind)
   const expCards = document.querySelectorAll('.exp-card');
   if (expCards.length > 0) {
     const handleCardsScroll = () => {
       expCards.forEach((card, index) => {
-        if (index < expCards.length - 1) {
+        if (index < expCards.length - 1) { // 0: for body, 1: for soul, 2: for mind
           const rect = card.getBoundingClientRect();
-          const fadeStart = 360;
-          const fadeEnd = 160;
+          const fadeStart = 420;
+          const fadeEnd = 180;
 
           if (rect.bottom < fadeStart) {
             const progress = Math.max(0, Math.min(1, (rect.bottom - fadeEnd) / (fadeStart - fadeEnd)));
@@ -293,33 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleCardsScroll, { passive: true });
     handleCardsScroll();
   }
-  // 14. Synchronized Scroll-Up when Card 4 reaches bottom alignment
-  const expContainer = document.querySelector('.experience-container');
-  const experienceLeft = document.querySelector('.experience-left');
-  const card4 = document.querySelector('.exp-card-special-wrapper');
-  
-  if (expContainer && experienceLeft && card4) {
-    const handleScrollUnstick = () => {
-      const cardRect = card4.getBoundingClientRect();
-      const containerRect = expContainer.getBoundingClientRect();
-      
-      if (cardRect.bottom <= window.innerHeight - 80) {
-        if (experienceLeft.style.position !== 'absolute') {
-          const currentTopOffset = Math.max(0, 75 - containerRect.top);
-          experienceLeft.style.position = 'absolute';
-          experienceLeft.style.top = `${currentTopOffset}px`;
-        }
-      } else {
-        if (experienceLeft.style.position === 'absolute') {
-          experienceLeft.style.position = 'sticky';
-          experienceLeft.style.top = '75px';
-        }
-      }
-    };
-    
-    window.addEventListener('scroll', handleScrollUnstick, { passive: true });
-    handleScrollUnstick();
-  }
+  // 14. Native Sticky Pinning for Experience Left Column
+  // (Left column stays pinned at top: 75px until Card 4 reaches position)
 
   // ==========================================================================
   // 16. Guaranteed 60fps Scroll-Driven Parallax Zoom for Ready CTA Image & Text

@@ -2024,7 +2024,12 @@ footer {
 .experience-section {
   background-color: #F8F8F7;
   color: #111111;
-  padding: 5rem 0 2rem 0;
+  /* 
+   * MANUAL CONTROL FOR CARD 4 SCROLL HEIGHT BEFORE UNPINNING:
+   * Increase bottom padding (e.g., 20vh, 30vh, 350px) to make Card 4 move UP HIGHER before unpinning.
+   * Decrease bottom padding (e.g., 2rem, 5vh) to unpin earlier.
+   */
+  padding: 5rem 0 5vh 0;
   position: relative;
   z-index: 10;
   width: 100%;
@@ -2122,7 +2127,7 @@ footer {
   position: relative;
   background: #FFFFFF;
   border-radius: 24px;
-  padding: 1.4rem 1.85rem;
+  padding: 0.9rem 1.4rem;
   border: 1px solid #EFEFEA;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07), 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: opacity 0.22s cubic-bezier(0.2, 0, 0, 1), transform 0.22s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.35s ease;
@@ -2131,7 +2136,7 @@ footer {
 }
 
 .exp-card:first-child {
-  margin-top: 4.5rem;
+  margin-top: 0;
 }
 
 .exp-card:hover {
