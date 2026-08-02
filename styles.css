@@ -3638,6 +3638,7 @@ footer {
 .steps-right {
   width: 100%;
   max-width: 620px;
+  padding-top: 2.2rem;
 }
 
 .steps-list {
