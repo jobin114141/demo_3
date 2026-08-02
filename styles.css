@@ -38,9 +38,31 @@ body {
   color: var(--text-main);
   overflow-x: clip;
   width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d0 #f7f7f5;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+}
+
+/* Custom Light/White Browser Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f7f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d0;
+  border-radius: 10px;
+  border: 2px solid #f7f7f5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b5b5b0;
 }
 
 /* Custom Scrollbar */
@@ -3228,7 +3250,7 @@ footer {
   gap: 0.8rem;
   cursor: pointer;
   width: 260px;
-  margin-top: 4.5rem;
+  margin-top: 9.5rem;
 }
 
 .video-thumb-img-wrap {
