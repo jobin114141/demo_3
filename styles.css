@@ -3579,9 +3579,8 @@ footer {
 }
 
 .steps-grid {
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  gap: 9.5rem;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   width: 100%;
 }
@@ -3591,6 +3590,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 0 0 340px;
+  max-width: 340px;
 }
 
 .steps-badge {
@@ -3633,9 +3634,11 @@ footer {
   max-width: 440px;
 }
 
-/* Right Column: 4-Step List */
+/* Right Column: 4-Step List (Pushed to Far Right Edge) */
 .steps-right {
-  width: 100%;
+  flex: 0 0 600px;
+  max-width: 600px;
+  margin-left: auto;
 }
 
 .steps-list {
@@ -3663,12 +3666,12 @@ footer {
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: transform 0.35s ease, background-color 0.35s ease;
 }
 
+/* Hover effect turned off */
 .step-item:hover .step-num-circle {
-  transform: scale(1.08);
-  background-color: #9ecc1c;
+  transform: none;
+  background-color: #ffffff;
 }
 
 .step-info {
