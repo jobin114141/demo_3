@@ -3580,8 +3580,8 @@ footer {
 
 .steps-grid {
   display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 7.5rem;
+  grid-template-columns: 320px 1fr;
+  gap: 13rem;
   align-items: flex-start;
   width: 100%;
 }
@@ -3630,30 +3630,30 @@ footer {
   line-height: 1.7;
   color: #666664;
   margin: 0;
-  max-width: 440px;
+  max-width: 320px;
 }
 
 /* Right Column: 4-Step List */
 .steps-right {
   width: 100%;
-  max-width: 640px;
+  max-width: 680px;
 }
 
 .steps-list {
   display: flex;
   flex-direction: column;
-  gap: 5.2rem;
+  gap: 5.5rem;
 }
 
 .step-item {
   display: flex;
   align-items: flex-start;
-  gap: 2.2rem;
+  gap: 3.5rem;
 }
 
 .step-num-circle {
-  width: 88px;
-  height: 88px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: #ffffff;
   color: #111111;
@@ -3675,24 +3675,24 @@ footer {
 .step-info {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  padding-top: 0.4rem;
+  gap: 0.8rem;
+  padding-top: 1.2rem;
 }
 
 .step-item-title {
   font-family: var(--font-heading);
-  font-size: 1.18rem;
+  font-size: 1.22rem;
   font-weight: 500;
   color: #111111;
   margin: 0;
 }
 
 .step-item-desc {
-  font-size: 1.02rem;
+  font-size: 0.95rem;
   line-height: 1.65;
-  color: #666664;
+  color: #888888;
   margin: 0;
-  max-width: 560px;
+  max-width: 520px;
 }
 
 /* Responsive Media Queries for Steps */
