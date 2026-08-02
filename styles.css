@@ -3201,9 +3201,9 @@ footer {
 
 .testimonials-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-size: clamp(1.75rem, 2.6vw, 2.35rem);
   font-weight: 400;
-  line-height: 1.18;
+  line-height: 1.2;
   color: #111111;
   letter-spacing: -0.02em;
   margin: 0 0 1rem 0;
@@ -3215,8 +3215,9 @@ footer {
 }
 
 .testimonials-subtitle {
-  font-size: 0.98rem;
-  color: #777777;
+  font-size: 0.95rem;
+  color: #111111;
+  font-weight: 300;
   margin: 0 0 3rem 0;
 }
 
@@ -3226,13 +3227,14 @@ footer {
   flex-direction: column;
   gap: 0.8rem;
   cursor: pointer;
-  width: 220px;
+  width: 230px;
+  margin-top: 4.5rem;
 }
 
 .video-thumb-img-wrap {
   position: relative;
-  width: 220px;
-  height: 160px;
+  width: 230px;
+  height: 230px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
@@ -3372,23 +3374,43 @@ footer {
 }
 
 .testimonial-card {
-  flex: 0 0 420px;
-  max-width: 420px;
+  flex: 0 0 365px;
+  max-width: 365px;
+  min-height: 460px;
   background: #ffffff;
   border-radius: 32px;
-  padding: 2.2rem 2.2rem 2rem 2.2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem 2.4rem 2.2rem 2.4rem;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease;
   cursor: pointer;
 }
 
+/* Cascading Dynamic Heights for Testimonial Cards */
+.testimonial-card:nth-child(4n+1) {
+  min-height: 510px; /* Reduced height for Daniel Kim card */
+}
+
+.testimonial-card:nth-child(4n+2) {
+  min-height: 450px; /* A bit less height (Emma Rodriguez) */
+}
+
+.testimonial-card:nth-child(4n+3) {
+  min-height: 390px; /* A bit more less height (Lucas Vance) */
+}
+
+.testimonial-card:nth-child(4n+4) {
+  min-height: 490px; /* Good long height (Sophia Martinez) */
+}
+
 .testimonial-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
+  transform: translateY(-6px);
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .card-top-row {
