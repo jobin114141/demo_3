@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateTestiSlider() {
       if (cards.length === 0) return;
-      const cardWidth = cards[0].offsetWidth + 32; // 32px is 2rem gap
+      const cardWidth = cards[0].offsetWidth + 24; // 24px is 1.5rem gap
       testiTrack.style.transform = `translateX(-${currentTestiIndex * cardWidth}px)`;
     }
 
