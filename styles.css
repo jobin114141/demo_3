@@ -1899,10 +1899,8 @@ footer {
   border-top: 1px solid #e2e2de;
   display: flex;
   justify-content: space-between;
-  color: #777777;
-}
   align-items: center;
-  color: var(--text-muted);
+  color: #777777;
   font-size: 0.875rem;
 }
 
@@ -4021,6 +4019,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+
   .faq-contact-card {
     margin-top: 2rem;
     max-width: 100%;
@@ -4031,6 +4030,7 @@ footer {
   .faq-container {
     padding: 0 1.25rem;
   }
+
   .faq-question {
     font-size: 1.05rem;
   }
@@ -4257,6 +4257,7 @@ footer {
     align-items: flex-start;
     gap: 1rem;
   }
+
   .team-card {
     flex: 0 0 calc((100% - 1.8rem) / 2);
     max-width: calc((100% - 1.8rem) / 2);
@@ -4270,6 +4271,7 @@ footer {
     max-width: 85%;
     height: 420px;
   }
+
   .team-container {
     padding: 0 1.25rem;
   }
@@ -4417,9 +4419,12 @@ footer {
 }
 
 @keyframes floatGentle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -4517,6 +4522,7 @@ footer {
 
 /* Responsive Media Queries for Ready CTA Section */
 @media (max-width: 1024px) {
+
   .cta-floating-left,
   .cta-floating-right {
     position: relative;
