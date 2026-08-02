@@ -3651,13 +3651,13 @@ footer {
 }
 
 .step-num-circle {
-  width: 68px;
-  height: 68px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background: #ffffff;
   color: #111111;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: center;
