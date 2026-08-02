@@ -2866,3 +2866,255 @@ footer {
     padding: 0 1.25rem;
   }
 }
+
+/* ==========================================================================
+   INSTRUCTORS SECTION (Coaches Slider & Features)
+   ========================================================================== */
+.instructors-section {
+  position: relative;
+  background-color: #f7f7f5;
+  color: #111111;
+  padding: 6rem 0;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.instructors-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4vw;
+  box-sizing: border-box;
+}
+
+.instructors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left Column: Card Wrap & Glassmorphism Overlays */
+.instructors-card-wrap {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.instructors-img-stack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.coach-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.coach-img.active-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Glassmorphism Controls */
+.glass-pill {
+  position: absolute;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill.top-left {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.glass-pill.bottom-left {
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.glass-circle-btn {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-circle-btn.top-right {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+}
+
+.glass-circle-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.08);
+  color: #ffffff;
+}
+
+.slider-nav-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Right Column: Text & Features */
+.instructors-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 600px;
+}
+
+.instructors-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #555555;
+  text-transform: uppercase;
+}
+
+.instructors-badge .star-icon {
+  color: #9ecc1c;
+  font-size: 0.85rem;
+}
+
+.instructors-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111111;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.instructors-title .highlight-grey {
+  color: #9a9a98;
+  font-weight: 400;
+}
+
+.instructors-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.instructors-paragraphs p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666664;
+  margin: 0;
+}
+
+/* Features 2-Column Grid */
+.instructors-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.2rem;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.feature-icon-wrap {
+  font-size: 1.2rem;
+  color: #111111;
+  margin-bottom: 0.2rem;
+}
+
+.feature-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.feature-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #666664;
+  margin: 0;
+}
+
+/* Responsive Media Queries for Instructors */
+@media (max-width: 1024px) {
+  .instructors-grid {
+    gap: 3rem;
+  }
+  .instructors-card-wrap {
+    height: 460px;
+  }
+}
+
+@media (max-width: 768px) {
+  .instructors-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .instructors-card-wrap {
+    height: 380px;
+  }
+  .instructors-features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .instructors-container {
+    padding: 0 1.25rem;
+  }
+}

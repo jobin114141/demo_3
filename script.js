@@ -583,4 +583,80 @@ document.addEventListener('DOMContentLoaded', () => {
       floatingCard.classList.remove('active');
     });
   }
+
+  // ==========================================================================
+  // 18. Instructors Section Reusable Image Slider
+  // ==========================================================================
+  const instructorsData = [
+    {
+      image: "images/coach1.jpg",
+      coach: "Coach: Wayan Bayu",
+      language: "ENG / IND"
+    },
+    {
+      image: "images/coach2.jpg",
+      coach: "Coach: Ketut Arta",
+      language: "ENG / GER"
+    },
+    {
+      image: "images/coach3.jpg",
+      coach: "Coach: Made Surya",
+      language: "ENG / FRE"
+    }
+  ];
+
+  const coachImg1 = document.getElementById('coachImg1');
+  const coachImg2 = document.getElementById('coachImg2');
+  const coachNamePill = document.getElementById('coachNamePill');
+  const coachLangPill = document.getElementById('coachLangPill');
+  const coachPrevBtn = document.getElementById('coachPrevBtn');
+  const coachNextBtn = document.getElementById('coachNextBtn');
+
+  if (coachImg1 && coachImg2 && coachNamePill && coachLangPill && coachPrevBtn && coachNextBtn) {
+    // Preload coach images into memory cache
+    instructorsData.forEach(item => {
+      const img = new Image();
+      img.src = item.image;
+    });
+
+    let currentCoachIndex = 0;
+    let activeCoachLayer = coachImg1;
+    let inactiveCoachLayer = coachImg2;
+
+    function updateCoachSlide(nextIndex) {
+      currentCoachIndex = nextIndex;
+      const data = instructorsData[currentCoachIndex];
+
+      // Update text pills with smooth fade
+      coachNamePill.style.opacity = '0.4';
+      coachLangPill.style.opacity = '0.4';
+
+      setTimeout(() => {
+        coachNamePill.textContent = data.coach;
+        coachLangPill.textContent = data.language;
+        coachNamePill.style.opacity = '1';
+        coachLangPill.style.opacity = '1';
+      }, 150);
+
+      // Double buffered image crossfade
+      inactiveCoachLayer.src = data.image;
+      inactiveCoachLayer.classList.add('active-img');
+      activeCoachLayer.classList.remove('active-img');
+
+      // Swap layer pointers
+      const temp = activeCoachLayer;
+      activeCoachLayer = inactiveCoachLayer;
+      inactiveCoachLayer = temp;
+    }
+
+    coachNextBtn.addEventListener('click', () => {
+      const nextIdx = (currentCoachIndex + 1) % instructorsData.length;
+      updateCoachSlide(nextIdx);
+    });
+
+    coachPrevBtn.addEventListener('click', () => {
+      const prevIdx = (currentCoachIndex - 1 + instructorsData.length) % instructorsData.length;
+      updateCoachSlide(prevIdx);
+    });
+  }
 });
