@@ -3552,3 +3552,180 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ==========================================================================
+   STEPS SECTION (Four Steps Vertical Timeline)
+   ========================================================================== */
+.steps-section {
+  position: relative;
+  background-color: #f8f8f5;
+  color: #111111;
+  padding: 5rem 0 6rem 0;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.steps-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4vw;
+  box-sizing: border-box;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  gap: 4.5rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Left Column */
+.steps-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.steps-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #555555;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.steps-badge .star-icon {
+  color: #9ecc1c;
+  font-size: 0.85rem;
+}
+
+.steps-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 2.6vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111111;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2rem 0;
+}
+
+.steps-title .highlight-grey {
+  color: #9a9a98;
+  font-weight: 400;
+}
+
+.steps-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666664;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* Right Column: 4-Step List */
+.steps-right {
+  width: 100%;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.2rem;
+}
+
+.step-num-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.step-item:hover .step-num-circle {
+  transform: scale(1.08);
+  background-color: #9ecc1c;
+}
+
+.step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 0.4rem;
+}
+
+.step-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: #111111;
+  margin: 0;
+}
+
+.step-item-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #777777;
+  margin: 0;
+  max-width: 540px;
+}
+
+/* Responsive Media Queries for Steps */
+@media (max-width: 1024px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .step-item {
+    gap: 1.2rem;
+  }
+  .step-num-circle {
+    width: 54px;
+    height: 54px;
+    font-size: 0.95rem;
+  }
+  .steps-container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* Scroll Reveal Animations for Steps Section */
+.steps-section .reveal-element {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.steps-section .reveal-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
