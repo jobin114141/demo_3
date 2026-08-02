@@ -661,9 +661,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 19. Scroll Reveal Animations (Instructors, Testimonials & Steps)
+  // 19. Scroll Reveal Animations (Instructors, Testimonials, Steps, FAQ & Team)
   // ==========================================================================
-  const revealElements = document.querySelectorAll('.instructors-section .reveal-element, .testimonials-section .reveal-element, .steps-section .reveal-element');
+  const revealElements = document.querySelectorAll('.instructors-section .reveal-element, .testimonials-section .reveal-element, .steps-section .reveal-element, .faq-section .reveal-element, .team-section .reveal-element');
   if (revealElements.length > 0) {
     const observerOptions = {
       root: null,
@@ -681,6 +681,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // ==========================================================================
+  // 21. FAQ Accordion Toggle Interaction
+  // ==========================================================================
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionRow = item.querySelector('.faq-question-row');
+    if (questionRow) {
+      questionRow.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+
+  // ==========================================================================
+  // 22. Meet The Team Carousel Slider
+  // ==========================================================================
+  const teamTrack = document.getElementById('teamTrack');
+  const teamPrevBtn = document.getElementById('teamPrevBtn');
+  const teamNextBtn = document.getElementById('teamNextBtn');
+
+  if (teamTrack && teamPrevBtn && teamNextBtn) {
+    let currentTeamIndex = 0;
+    const cards = teamTrack.querySelectorAll('.team-card');
+    const totalCards = cards.length;
+
+    function updateTeamSlider() {
+      if (cards.length === 0) return;
+      const cardWidth = cards[0].offsetWidth + 28;
+      teamTrack.style.transform = `translateX(-${currentTeamIndex * cardWidth}px)`;
+    }
+
+    teamNextBtn.addEventListener('click', () => {
+      if (currentTeamIndex < totalCards - 3) {
+        currentTeamIndex++;
+      } else {
+        currentTeamIndex = 0;
+      }
+      updateTeamSlider();
+    });
+
+    teamPrevBtn.addEventListener('click', () => {
+      if (currentTeamIndex > 0) {
+        currentTeamIndex--;
+      } else {
+        currentTeamIndex = Math.max(0, totalCards - 3);
+      }
+      updateTeamSlider();
+    });
+
+    window.addEventListener('resize', updateTeamSlider);
   }
 
   // ==========================================================================
