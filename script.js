@@ -661,9 +661,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 19. Instructors Scroll Reveal Animation on Scroll
+  // 19. Scroll Reveal Animations (Instructors & Testimonials)
   // ==========================================================================
-  const revealElements = document.querySelectorAll('.instructors-section .reveal-element');
+  const revealElements = document.querySelectorAll('.instructors-section .reveal-element, .testimonials-section .reveal-element');
   if (revealElements.length > 0) {
     const observerOptions = {
       root: null,
@@ -681,5 +681,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // ==========================================================================
+  // 20. Testimonials Carousel Slider & Video Card Trigger
+  // ==========================================================================
+  const testiTrack = document.getElementById('testimonialTrack');
+  const testiPrevBtn = document.getElementById('testiPrevBtn');
+  const testiNextBtn = document.getElementById('testiNextBtn');
+  const openVideoDiaryBtn = document.getElementById('openVideoDiaryBtn');
+
+  if (testiTrack && testiPrevBtn && testiNextBtn) {
+    let currentTestiIndex = 0;
+    const cards = testiTrack.querySelectorAll('.testimonial-card');
+    const totalCards = cards.length;
+
+    function updateTestiSlider() {
+      if (cards.length === 0) return;
+      const cardWidth = cards[0].offsetWidth + 32; // 32px is 2rem gap
+      testiTrack.style.transform = `translateX(-${currentTestiIndex * cardWidth}px)`;
+    }
+
+    testiNextBtn.addEventListener('click', () => {
+      if (currentTestiIndex < totalCards - 1) {
+        currentTestiIndex++;
+      } else {
+        currentTestiIndex = 0; // Loop back
+      }
+      updateTestiSlider();
+    });
+
+    testiPrevBtn.addEventListener('click', () => {
+      if (currentTestiIndex > 0) {
+        currentTestiIndex--;
+      } else {
+        currentTestiIndex = totalCards - 1;
+      }
+      updateTestiSlider();
+    });
+
+    window.addEventListener('resize', updateTestiSlider);
+  }
+
+  if (openVideoDiaryBtn && modalOverlay) {
+    openVideoDiaryBtn.addEventListener('click', () => {
+      modalOverlay.classList.add('active');
+    });
   }
 });
