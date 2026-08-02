@@ -3591,7 +3591,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
 }
 
 .steps-badge {
@@ -3637,8 +3636,7 @@ footer {
 /* Right Column: 4-Step List */
 .steps-right {
   width: 100%;
-  max-width: 620px;
-  padding-top: 2.2rem;
+  max-width: 640px;
 }
 
 .steps-list {
