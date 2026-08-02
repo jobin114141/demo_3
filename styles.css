@@ -3580,8 +3580,8 @@ footer {
 
 .steps-grid {
   display: grid;
-  grid-template-columns: 38% 1fr;
-  gap: 4.5rem;
+  grid-template-columns: 35% 1fr;
+  gap: 7rem;
   align-items: flex-start;
   width: 100%;
 }
@@ -3687,11 +3687,11 @@ footer {
 }
 
 .step-item-desc {
-  font-size: 0.92rem;
+  font-size: 1.02rem;
   line-height: 1.65;
-  color: #777777;
+  color: #666664;
   margin: 0;
-  max-width: 540px;
+  max-width: 560px;
 }
 
 /* Responsive Media Queries for Steps */
