@@ -661,9 +661,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 19. Scroll Reveal Animations (Instructors, Testimonials, Steps, FAQ & Team)
+  // 19. Scroll Reveal Animations (Instructors, Testimonials, Steps, FAQ, Team & Ready CTA)
   // ==========================================================================
-  const revealElements = document.querySelectorAll('.instructors-section .reveal-element, .testimonials-section .reveal-element, .steps-section .reveal-element, .faq-section .reveal-element, .team-section .reveal-element');
+  const revealElements = document.querySelectorAll('.instructors-section .reveal-element, .testimonials-section .reveal-element, .steps-section .reveal-element, .faq-section .reveal-element, .team-section .reveal-element, .ready-cta-section .reveal-element');
   if (revealElements.length > 0) {
     const observerOptions = {
       root: null,
