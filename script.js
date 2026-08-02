@@ -328,4 +328,259 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleReadyScroll, { passive: true });
     handleReadyScroll();
   }
+
+  // ==========================================================================
+  // 17. Interactive Program Itinerary with Floating Card & Accordion
+  // ==========================================================================
+  const programData = [
+    {
+      day: "Day 1",
+      title: "Arrival & Meet the Crew",
+      image: "images/day1.jpg",
+      description: "Welcome to Bali! Today is all about settling in and getting to know your new crew. We'll pick you up from the airport (flights usually arrive throughout the day), get you settled into the villa, and ease into island time. No pressure, no rush — just introductions, cold drinks by the pool, and a relaxed dinner together. By the end of the night, it'll feel like you've known these people forever.",
+      timetable: [
+        { time: "14:00 – 16:00", activity: "Airport Transfer & Villa Check-in" },
+        { time: "16:30 – 18:00", activity: "Welcome Refreshments & Villa Orientation" },
+        { time: "18:30 – 21:00", activity: "Poolside Cocktails & Sunset Crew Dinner" }
+      ]
+    },
+    {
+      day: "Day 2",
+      title: "First Waves & Island Vibes",
+      image: "images/day2.jpg",
+      description: "Morning ocean safety & surfing technique briefing at Batu Bolong beach followed by your first guided session with 1-on-1 coaching feedback. Afternoon video breakdown at the villa, followed by golden hour beach club social with resident DJs.",
+      timetable: [
+        { time: "07:00 – 08:00", activity: "Healthy Tropical Breakfast at Villa" },
+        { time: "08:30 – 11:30", activity: "Surf Assessment & First Guided Session" },
+        { time: "15:00 – 16:30", activity: "Video Analysis & Technique Workshop" },
+        { time: "17:30 – 20:00", activity: "Sunset Drinks & Music at Beach Club" }
+      ]
+    },
+    {
+      day: "Day 3",
+      title: "Surf Progress & Beach Club",
+      image: "images/day3.jpg",
+      description: "Early morning dawn patrol to catch glass-calm condition breaks. Focus on pop-up mechanics, angling takeoffs, and wave selection analyzed through 4K drone footage. Relax by the oceanfront pool in the afternoon.",
+      timetable: [
+        { time: "06:30 – 09:30", activity: "Dawn Patrol Surf Session & Drone Shoot" },
+        { time: "10:30 – 12:00", activity: "Post-Surf Brunch & 4K Drone Review" },
+        { time: "14:00 – 18:00", activity: "Free Time, Massage & Oceanfront Pool Relax" }
+      ]
+    },
+    {
+      day: "Day 4",
+      title: "Temple Visit & Culture Day",
+      image: "images/day4.jpg",
+      description: "Mid-week active body recovery day! Journey to the famous cliffside Uluwatu Temple, participate in a traditional water blessing ceremony, and enjoy fresh seafood dinner by the ocean.",
+      timetable: [
+        { time: "09:00 – 12:00", activity: "Guided Visit to Uluwatu Ocean Temple" },
+        { time: "13:00 – 15:00", activity: "Traditional Balinese Water Purification Ceremony" },
+        { time: "18:00 – 21:00", activity: "Cliffside Sunset Seafood Dinner" }
+      ]
+    },
+    {
+      day: "Day 5",
+      title: "Surf & Waterfall Adventure",
+      image: "images/day5.jpg",
+      description: "Speedboat boat trip to a secret island reef break with pristine green waves. Afternoon jungle trek to swim beneath secret waterfalls and explore night markets.",
+      timetable: [
+        { time: "06:00 – 12:00", activity: "Outer Island Speedboat Surf Excursion" },
+        { time: "14:00 – 17:00", activity: "Jungle Waterfall Trek & Natural Pool Swim" },
+        { time: "18:30 – 21:00", activity: "Canggu Night Market Culinary Tour" }
+      ]
+    },
+    {
+      day: "Day 6",
+      title: "Surf & Spa Day",
+      image: "images/day6.jpg",
+      description: "Final surf coaching session to lock in your technique and record souvenir photo moments. Afternoon deep tissue massage & ice bath, followed by a beachfront bonfire party.",
+      timetable: [
+        { time: "07:30 – 10:30", activity: "Final Progress Surf & Photo Session" },
+        { time: "14:00 – 16:30", activity: "Ice Bath Recovery & Deep Tissue Surf Massage" },
+        { time: "18:00 – 22:00", activity: "Farewell Beachfront Bonfire Celebration" }
+      ]
+    }
+  ];
+
+  const programList = document.getElementById('programList');
+  const programSection = document.getElementById('program');
+  const floatingCard = document.getElementById('programFloatingCard');
+  const imgLayer1 = document.getElementById('programFloatingImg1');
+  const imgLayer2 = document.getElementById('programFloatingImg2');
+
+  if (programList && programSection && floatingCard && imgLayer1 && imgLayer2) {
+    // Preload Images into cache memory to ensure zero delay or flickering
+    const preloadedImages = {};
+    programData.forEach(item => {
+      const img = new Image();
+      img.src = item.image;
+      preloadedImages[item.image] = img;
+    });
+
+    // Render Rows Dynamically
+    programList.innerHTML = programData.map((item, index) => `
+      <div class="program-row" data-index="${index}">
+        <div class="program-row-main">
+          <div class="program-row-info">
+            <span class="program-day">${item.day}</span>
+            <h3 class="program-row-title">${item.title}</h3>
+          </div>
+          <button class="program-arrow-btn" aria-label="Toggle details for ${item.day}">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+        <div class="program-accordion-content">
+          <div class="program-accordion-inner">
+            <div class="program-expanded-layout">
+              
+              <!-- Column 1: Tabs Nav -->
+              <div class="program-col-tabs">
+                <button class="program-tab-btn active" data-tab="desc">Description</button>
+                <button class="program-tab-btn" data-tab="timetable">Timetable</button>
+              </div>
+
+              <!-- Column 2: Middle Content (Text + Join The Camp button at bottom-left) -->
+              <div class="program-col-content">
+                <div class="program-tab-panels">
+                  <!-- Description Panel -->
+                  <div class="program-panel panel-desc active">
+                    <p class="program-desc-text">${item.description}</p>
+                    <a href="#apply" class="btn-join-camp-expanded">
+                      <span>Join The Camp</span>
+                      <span class="arrow-circle-up"><i class="fa-solid fa-arrow-right"></i></span>
+                    </a>
+                  </div>
+
+                  <!-- Timetable Panel -->
+                  <div class="program-panel panel-timetable">
+                    <ul class="program-timetable-list">
+                      ${item.timetable.map(t => `
+                        <li>
+                          <span class="time-col">${t.time}</span>
+                          <span class="activity-col">${t.activity}</span>
+                        </li>
+                      `).join('')}
+                    </ul>
+                    <a href="#apply" class="btn-join-camp-expanded">
+                      <span>Join The Camp</span>
+                      <span class="arrow-circle-up"><i class="fa-solid fa-arrow-right"></i></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Column 3: Clean Rounded Day Photo -->
+              <div class="program-col-media">
+                <img src="${item.image}" alt="${item.title} Preview" class="program-expanded-img">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="program-divider"></div>
+      </div>
+    `).join('');
+
+    const rows = programList.querySelectorAll('.program-row');
+
+    // Tab Switcher & Accordion Logic
+    rows.forEach(row => {
+      const main = row.querySelector('.program-row-main');
+      const accordion = row.querySelector('.program-accordion-content');
+      const tabBtns = row.querySelectorAll('.program-tab-btn');
+      const panelDesc = row.querySelector('.panel-desc');
+      const panelTimetable = row.querySelector('.panel-timetable');
+
+      // Tab switcher event listeners
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetTab = btn.getAttribute('data-tab');
+
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          if (targetTab === 'desc') {
+            panelTimetable.classList.remove('active');
+            panelDesc.classList.add('active');
+          } else {
+            panelDesc.classList.remove('active');
+            panelTimetable.classList.add('active');
+          }
+
+          // Recalculate accordion scrollHeight for smooth tab switching
+          accordion.style.maxHeight = accordion.scrollHeight + 'px';
+        });
+      });
+
+      // Accordion Toggle Behavior (Only 1 item open at a time)
+      main.addEventListener('click', () => {
+        const isActive = row.classList.contains('active');
+
+        // Close all other rows
+        rows.forEach(r => {
+          if (r !== row) {
+            r.classList.remove('active');
+            const otherAccordion = r.querySelector('.program-accordion-content');
+            if (otherAccordion) {
+              otherAccordion.style.maxHeight = '0px';
+            }
+          }
+        });
+
+        // Toggle current row
+        if (isActive) {
+          row.classList.remove('active');
+          accordion.style.maxHeight = '0px';
+          programSection.classList.remove('has-open-row');
+        } else {
+          row.classList.add('active');
+          accordion.style.maxHeight = accordion.scrollHeight + 'px';
+          programSection.classList.add('has-open-row');
+          floatingCard.classList.remove('active'); // Hide popup hover image immediately on open
+        }
+      });
+    });
+
+    // Hover Preview Logic: only active when NO row is expanded
+    let activeLayer = imgLayer1;
+    let inactiveLayer = imgLayer2;
+    let currentImageSrc = '';
+
+    rows.forEach(row => {
+      const index = parseInt(row.getAttribute('data-index'), 10);
+      const dataItem = programData[index];
+
+      row.addEventListener('mouseenter', () => {
+        if (window.innerWidth <= 768) return;
+        // Do not display popup hover image if any accordion item is currently open
+        if (programSection.classList.contains('has-open-row')) {
+          floatingCard.classList.remove('active');
+          return;
+        }
+
+        floatingCard.classList.add('active');
+
+        if (currentImageSrc !== dataItem.image) {
+          currentImageSrc = dataItem.image;
+
+          activeLayer.classList.remove('active-layer');
+
+          setTimeout(() => {
+            inactiveLayer.src = dataItem.image;
+            inactiveLayer.classList.add('active-layer');
+
+            const temp = activeLayer;
+            activeLayer = inactiveLayer;
+            inactiveLayer = temp;
+          }, 120);
+        }
+      });
+    });
+
+    // Hide floating image card when cursor leaves section
+    programSection.addEventListener('mouseleave', () => {
+      floatingCard.classList.remove('active');
+    });
+  }
 });

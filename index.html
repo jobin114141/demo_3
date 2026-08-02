@@ -458,7 +458,8 @@
     </div>
   </section>
 
-  <!-- Experience Section (Body, soul, mind, and connection) -->
+  </section>
+
   <section class="experience-section" id="camp">
     <div class="experience-container">
 
@@ -558,6 +559,39 @@
           <a href="#apply" class="btn-ready-apply">Apply Now</a>
         </div>
       </div>
+    </div>
+  <!-- Program Section (Itinerary with Floating Hover Images) -->
+  <section class="program-section" id="program">
+    <div class="program-container">
+
+      <!-- Header: Badge, Heading & Download Full Program Button -->
+      <div class="program-header">
+        <div class="program-header-left">
+          <div class="program-badge">
+            <span class="star-icon">★</span> PROGRAM
+          </div>
+          <h2 class="program-title">
+            What we've <span class="highlight-grey">planned</span> for you:
+          </h2>
+        </div>
+
+        <a href="#reserve" class="btn-full-program" download>
+          <i class="fa-solid fa-download"></i>
+          <span>Full Program</span>
+        </a>
+      </div>
+
+      <!-- Itinerary List Container (Populated dynamically via JavaScript) -->
+      <div class="program-list" id="programList">
+        <!-- Day rows will be rendered dynamically -->
+      </div>
+
+      <!-- Fixed Floating Image Card Anchored in Center-Right of Section -->
+      <div class="program-floating-card" id="programFloatingCard" aria-hidden="true">
+        <img class="program-card-img active-layer" id="programFloatingImg1" src="images/day1.jpg" alt="Day Itinerary Preview">
+        <img class="program-card-img" id="programFloatingImg2" src="images/day2.jpg" alt="Day Itinerary Preview">
+      </div>
+
     </div>
   </section>
 

@@ -2367,3 +2367,502 @@ footer {
     font-size: 2.1rem;
   }
 }
+
+/* ==========================================================================
+   PROGRAM SECTION (Itinerary with Floating Hover Images & Accordion)
+   ========================================================================== */
+.program-section {
+  position: relative;
+  background-color: #f7f7f5;
+  color: #111111;
+  padding: 4.5rem 0;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.program-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+  box-sizing: border-box;
+}
+
+/* Header */
+.program-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.program-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.program-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #555555;
+  text-transform: uppercase;
+}
+
+.program-badge .star-icon {
+  color: #9ecc1c;
+  font-size: 0.85rem;
+}
+
+.program-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 2.6vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: #111111;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.program-title .highlight-grey {
+  color: #9a9a98;
+  font-weight: 400;
+}
+
+/* Top Right Full Program Pill Button */
+.btn-full-program {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 50px;
+  background-color: #e5e5e3;
+  color: #222222;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.btn-full-program i {
+  font-size: 0.85rem;
+  color: #444444;
+}
+
+.btn-full-program:hover {
+  background-color: #dcdcdc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Itinerary List */
+.program-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.program-row {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.program-row-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 0;
+  transition: color 0.3s ease;
+  width: 100%;
+}
+
+.program-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.program-day {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #8c8c8a;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.program-row-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-weight: 400;
+  color: #222222;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease, transform 0.3s ease;
+  margin: 0;
+}
+
+.program-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #e5e5e3;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.program-row:hover .program-row-title {
+  color: #000000;
+}
+
+.program-row:hover .program-arrow-btn {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.program-row.active .program-arrow-btn {
+  transform: rotate(180deg);
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Divider Line across full width */
+.program-divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: background-color 0.35s ease, height 0.35s ease;
+}
+
+.program-row:hover .program-divider,
+.program-row.active .program-divider {
+  background-color: #9ecc1c;
+  height: 2px;
+}
+
+/* Accordion Content */
+.program-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease, padding 0.35s ease;
+}
+
+.program-row.active .program-accordion-content {
+  opacity: 1;
+  padding-bottom: 4rem;
+}
+
+.program-accordion-inner {
+  padding-top: 2.8rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+/* Expanded Row Layout (Matching Reference Screenshot Replica) */
+.program-expanded-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr 460px;
+  gap: 3.5rem;
+  align-items: start;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Column 1: Left Tabs Column */
+.program-col-tabs {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 0.2rem;
+}
+
+.program-tab-btn {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #8c8c8a;
+  cursor: pointer;
+  padding: 0 0 0.25rem 0;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.program-tab-btn.active {
+  color: #111111;
+  font-weight: 500;
+  border-bottom: 2px solid #111111;
+}
+
+/* Column 2: Middle Content Column (Text & Join The Camp Button) */
+.program-col-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+}
+
+.program-tab-panels {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-panel {
+  display: none;
+}
+
+.program-panel.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+  animation: fadeInPanel 0.3s ease forwards;
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.program-desc-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666664;
+  margin: 0 0 2rem 0;
+  max-width: 580px;
+}
+
+/* Join The Camp Button inside Expanded Content */
+.btn-join-camp-expanded {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #111111;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: auto;
+  width: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.btn-join-camp-expanded:hover {
+  transform: translateX(3px);
+}
+
+.btn-join-camp-expanded .arrow-circle-up {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #eaeaea;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-join-camp-expanded .arrow-circle-up i {
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+.btn-join-camp-expanded:hover .arrow-circle-up {
+  background: #9ecc1c;
+  color: #111111;
+}
+
+.btn-join-camp-expanded:hover .arrow-circle-up i {
+  transform: rotate(-45deg) scale(1.18);
+}
+
+/* Timetable List Styling */
+.program-timetable-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.program-timetable-list li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.92rem;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.program-timetable-list .time-col {
+  font-weight: 600;
+  color: #111111;
+  background: #eaeaea;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+.program-timetable-list .activity-col {
+  color: #444444;
+}
+
+/* Column 3: Right Side Photo Card */
+.program-col-media {
+  width: 100%;
+  max-width: 440px;
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+  justify-self: end;
+  margin-right: 0.5rem;
+}
+
+.program-expanded-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hide Floating Hover Card when any accordion item is expanded/open */
+.program-section.has-open-row .program-floating-card {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Fixed Floating Preview Image Card (Anchored Center-Right in Full Width Viewport) */
+.program-floating-card {
+  position: absolute;
+  top: 52%;
+  right: 32vw;
+  width: 230px;
+  height: 290px;
+  border-radius: 22px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.28), 0 10px 20px -5px rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%) rotate(-8deg) scale(0.96);
+  will-change: transform, opacity;
+  transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+              visibility 0.38s ease;
+  border: none;
+  background-color: transparent;
+}
+
+.program-floating-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) rotate(-8deg) scale(1);
+}
+
+.program-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  border-radius: 22px;
+  transform: scale(0.96);
+  transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  background-color: transparent;
+}
+
+.program-card-img.active-layer {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1400px) {
+  .program-floating-card {
+    right: 28vw;
+    width: 210px;
+    height: 265px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .program-floating-card {
+    right: 22vw;
+    width: 180px;
+    height: 225px;
+    border-radius: 16px;
+  }
+  .program-section {
+    padding: 4.5rem 0;
+  }
+  .program-container {
+    padding: 0 2.5rem;
+  }
+  .program-expanded-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .program-col-media {
+    max-width: 100%;
+    height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-floating-card {
+    display: none !important;
+  }
+  .program-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+  }
+  .program-row-main {
+    padding: 1.8rem 0;
+  }
+  .program-row-title {
+    font-size: 1.15rem;
+  }
+  .program-section {
+    padding: 3.5rem 0;
+  }
+  .program-container {
+    padding: 0 1.25rem;
+  }
+}
