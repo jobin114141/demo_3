@@ -3374,8 +3374,8 @@ footer {
 }
 
 .testimonial-card {
-  flex: 0 0 365px;
-  max-width: 365px;
+  flex: 0 0 420px;
+  max-width: 420px;
   min-height: 460px;
   background: #ffffff;
   border-radius: 32px;
@@ -3455,7 +3455,7 @@ footer {
 }
 
 .card-quote-text {
-  font-size: 0.96rem;
+  font-size: 1.08rem;
   line-height: 1.65;
   color: #333333;
   font-weight: 400;
