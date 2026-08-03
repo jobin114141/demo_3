@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Navbar Effect on Scroll (triggers after passing the hero section)
+  // 1. Sticky Navbar Effect on Scroll (triggers after hero, hides at footer)
   const navbar = document.querySelector('.navbar');
   const heroSection = document.querySelector('#hero');
+  const footerSection = document.querySelector('.wv-footer') || document.querySelector('footer');
 
   // Automatically mark navbar as loaded after 2.5s initial entrance completes
   setTimeout(() => {
@@ -18,7 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+
+    // Hide navbar when reaching footer section
+    if (navbar && footerSection) {
+      const footerRect = footerSection.getBoundingClientRect();
+      if (footerRect.top <= window.innerHeight - 80) {
+        navbar.classList.add('hidden-footer');
+      } else {
+        navbar.classList.remove('hidden-footer');
+      }
+    }
+  }, { passive: true });
 
   // 2. Mobile Menu Toggle
   const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -297,36 +308,53 @@ document.addEventListener('DOMContentLoaded', () => {
   // (Left column stays pinned at top: 75px until Card 4 reaches position)
 
   // ==========================================================================
-  // 16. Guaranteed 60fps Scroll-Driven Parallax Zoom for Ready CTA Image & Text
+  // 16. Dynamic Scroll-Driven Zoom In / Zoom Out Effect for Ready CTA Section
   // ==========================================================================
-  const readySection = document.querySelector('.ready-cta-section');
-  const readyBgImg = document.querySelector('.ready-bg-img');
-  const readyContent = document.querySelector('.ready-content');
+  const readySection = document.querySelector('#ready.ready-cta-section') || document.querySelector('.ready-cta-section');
+  if (readySection) {
+    const readyBanner = readySection.querySelector('.ready-cta-banner');
+    const readyBgImg = readySection.querySelector('.ready-bg-img');
+    const readyContent = readySection.querySelector('.ready-content');
 
-  if (readySection && readyBgImg && readyContent) {
-    const handleReadyScroll = () => {
-      const rect = readySection.getBoundingClientRect();
-      const windowH = window.innerHeight;
+    if (readyBanner && readyBgImg && readyContent) {
+      const handleReadyScroll = () => {
+        const rect = readySection.getBoundingClientRect();
+        const windowH = window.innerHeight;
 
-      // When section is anywhere in viewport
-      if (rect.bottom > 0 && rect.top < windowH) {
-        const totalDist = windowH + rect.height;
-        const currentDist = windowH - rect.top;
-        const progress = Math.max(0, Math.min(1, currentDist / totalDist));
+        if (rect.bottom > 0 && rect.top < windowH) {
+          // Calculate distance from center of viewport (0 = dead center, 1 = top or bottom edge)
+          const sectionCenter = rect.top + (rect.height / 2);
+          const viewportCenter = windowH / 2;
+          const distFromCenter = Math.abs(sectionCenter - viewportCenter);
+          const maxDist = (windowH / 2) + (rect.height / 2);
+          
+          // Normalized progress: 0 when centered (peak zoom in), 1 when entering/exiting (zoom out)
+          const edgeProgress = Math.max(0, Math.min(1, distFromCenter / maxDist));
+          const centerFactor = 1 - edgeProgress; // 1 at center, 0 at edges
 
-        // Background Image zooms gently from 1.00x to 1.15x on scroll
-        const imgScale = (1.00 + (progress * 0.15)).toFixed(3);
-        readyBgImg.style.transform = `scale(${imgScale})`;
+          // Overall continuous scroll progress (0 at top of viewport, 1 at bottom)
+          const totalDist = windowH + rect.height;
+          const currentDist = windowH - rect.top;
+          const scrollProgress = Math.max(0, Math.min(1, currentDist / totalDist));
 
-        // Foreground Text shrinks smaller from 1.10x down to 0.86x as you scroll down
-        const textScale = (1.10 - (progress * 0.24)).toFixed(3);
-        const textY = (-15 + (progress * 30)).toFixed(1);
-        readyContent.style.transform = `translateY(${textY}px) scale(${textScale})`;
-      }
-    };
+          // 1. Background image continuously zooms in from 1.00x up to 1.30x on scroll
+          const imgScale = (1.00 + (scrollProgress * 0.30)).toFixed(3);
+          readyBgImg.style.transform = `scale(${imgScale})`;
 
-    window.addEventListener('scroll', handleReadyScroll, { passive: true });
-    handleReadyScroll();
+          // 2. Banner container zooms in as it reaches viewport center (0.92 -> 1.02 -> 0.92)
+          const bannerScale = (0.92 + (centerFactor * 0.10)).toFixed(3);
+          readyBanner.style.transform = `scale(${bannerScale})`;
+
+          // 3. Text content zooms in dynamically at center (0.88 -> 1.12 -> 0.88) with subtle parallax Y shift
+          const textScale = (0.88 + (centerFactor * 0.24)).toFixed(3);
+          const textY = ((-15 * (1 - centerFactor))).toFixed(1);
+          readyContent.style.transform = `translateY(${textY}px) scale(${textScale})`;
+        }
+      };
+
+      window.addEventListener('scroll', handleReadyScroll, { passive: true });
+      handleReadyScroll();
+    }
   }
 
   // ==========================================================================
@@ -783,5 +811,118 @@ document.addEventListener('DOMContentLoaded', () => {
     openVideoDiaryBtn.addEventListener('click', () => {
       modalOverlay.classList.add('active');
     });
+  }
+
+  // ==========================================================================
+  // 23. Scroll-Driven Multi-Layer Floating Movement for "Ready to go with us?" Section
+  // ==========================================================================
+  const readyToGoSection = document.querySelector('#ready-cta');
+  if (readyToGoSection) {
+    const centerContent = readyToGoSection.querySelector('.cta-center-content');
+    const floatLeft = readyToGoSection.querySelector('.cta-floating-left');
+    const floatRight = readyToGoSection.querySelector('.cta-floating-right');
+    const badgeShaka = readyToGoSection.querySelector('.cta-badge-shaka');
+    const badgeSurf = readyToGoSection.querySelector('.cta-badge-surf');
+
+    const handleReadyToGoScroll = () => {
+      const rect = readyToGoSection.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      if (rect.bottom > 0 && rect.top < windowH) {
+        const totalDist = windowH + rect.height;
+        const currentDist = windowH - rect.top;
+        const progress = Math.max(0, Math.min(1, currentDist / totalDist));
+        const relCenter = progress - 0.5; // -0.5 when entering from bottom, 0 at center, +0.5 when exiting top
+
+        // 1. Center Title & Subtitle float smoothly UP and DOWN (-45px to +45px) with scale peak at center
+        if (centerContent) {
+          const centerY = (relCenter * -90).toFixed(1);
+          const centerScale = (0.95 + (1 - Math.abs(relCenter * 2)) * 0.08).toFixed(3);
+          centerContent.style.transform = `translateY(${centerY}px) scale(${centerScale})`;
+        }
+
+        // 2. Left Image Card floats UP dynamically (-130px to +65px)
+        if (floatLeft) {
+          const leftY = (relCenter * -130).toFixed(1);
+          floatLeft.style.transform = `translateY(${leftY}px)`;
+        }
+
+        // 3. Right Image Card floats DOWN in opposition (+120px to -60px)
+        if (floatRight) {
+          const rightY = (relCenter * 120).toFixed(1);
+          floatRight.style.transform = `translateY(${rightY}px)`;
+        }
+
+        // 4. Emoji Badges bob with extra float translation
+        if (badgeShaka) {
+          const shakaY = (relCenter * -50).toFixed(1);
+          badgeShaka.style.transform = `translateY(${shakaY}px)`;
+        }
+        if (badgeSurf) {
+          const surfY = (relCenter * 40).toFixed(1);
+          badgeSurf.style.transform = `translateY(${surfY}px)`;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleReadyToGoScroll, { passive: true });
+    handleReadyToGoScroll();
+  }
+
+  // ==========================================================================
+  // 24. Advanced Proximity Cursor Hover Animation for Huge "waveyu" Text
+  // ==========================================================================
+  const waveyuWrapper = document.getElementById('waveyuHugeTypography');
+  const chars = waveyuWrapper ? waveyuWrapper.querySelectorAll('.wv-char') : [];
+
+  if (chars.length > 0 && waveyuWrapper) {
+    let mouseX = -9999;
+    let mouseY = -9999;
+    let isTicking = false;
+
+    // Listen to mouse movement to detect cursor proximity even 40-70px above letters
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isTicking) {
+        requestAnimationFrame(updateTypographyProximity);
+        isTicking = true;
+      }
+    }, { passive: true });
+
+    function updateTypographyProximity() {
+      const PROXIMITY_RADIUS = 95; // Radius in px around character bounding box center
+      const EXTENDED_TOP_OFFSET = 75; // Detect cursor up to 75px above top of visible letter
+
+      chars.forEach(char => {
+        const rect = char.getBoundingClientRect();
+        
+        // Calculate center of character
+        const charCenterX = rect.left + (rect.width / 2);
+        const charCenterY = rect.top + (rect.height / 2);
+
+        // Distance from cursor to character center
+        const distX = mouseX - charCenterX;
+        const distY = mouseY - charCenterY;
+        const distance = Math.sqrt(distX * distX + distY * distY);
+
+        // Check if cursor is within radius OR in the expanded box above letter
+        const isAboveLetter = (
+          mouseX >= rect.left - 50 &&
+          mouseX <= rect.right + 50 &&
+          mouseY >= rect.top - EXTENDED_TOP_OFFSET &&
+          mouseY <= rect.bottom + 40
+        );
+
+        if (distance < PROXIMITY_RADIUS || isAboveLetter) {
+          char.classList.add('active');
+        } else {
+          char.classList.remove('active');
+        }
+      });
+
+      isTicking = false;
+    }
   }
 });
