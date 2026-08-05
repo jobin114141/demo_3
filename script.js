@@ -44,6 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.toggle('fa-xmark');
       }
     });
+
+    // Auto-close menu when clicking any nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-xmark');
+        }
+      });
+    });
   }
 
   // 3. Category Filter Tabs for Expeditions
@@ -285,6 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const expCards = document.querySelectorAll('.exp-card');
   if (expCards.length > 0) {
     const handleCardsScroll = () => {
+      if (window.innerWidth <= 1024) {
+        expCards.forEach(card => card.style.opacity = '1');
+        return;
+      }
+
       expCards.forEach((card, index) => {
         if (index < expCards.length - 1) { // 0: for body, 1: for soul, 2: for mind
           const rect = card.getBoundingClientRect();
@@ -740,14 +757,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = teamTrack.querySelectorAll('.team-card');
     const totalCards = cards.length;
 
+    function getTeamCardsVisible() {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 3;
+    }
+
     function updateTeamSlider() {
       if (cards.length === 0) return;
-      const cardWidth = cards[0].offsetWidth + 28;
+      const gap = window.innerWidth <= 768 ? 19.2 : 28.8;
+      const cardWidth = cards[0].offsetWidth + gap;
       teamTrack.style.transform = `translateX(-${currentTeamIndex * cardWidth}px)`;
     }
 
     teamNextBtn.addEventListener('click', () => {
-      if (currentTeamIndex < totalCards - 3) {
+      const visible = getTeamCardsVisible();
+      if (currentTeamIndex < totalCards - visible) {
         currentTeamIndex++;
       } else {
         currentTeamIndex = 0;
@@ -756,13 +781,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     teamPrevBtn.addEventListener('click', () => {
+      const visible = getTeamCardsVisible();
       if (currentTeamIndex > 0) {
         currentTeamIndex--;
       } else {
-        currentTeamIndex = Math.max(0, totalCards - 3);
+        currentTeamIndex = Math.max(0, totalCards - visible);
       }
       updateTeamSlider();
     });
+
+    // Touch Swipe Gesture Support for Mobile
+    let teamTouchStartX = 0;
+    let teamTouchEndX = 0;
+
+    teamTrack.addEventListener('touchstart', (e) => {
+      teamTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    teamTrack.addEventListener('touchend', (e) => {
+      teamTouchEndX = e.changedTouches[0].screenX;
+      const diff = teamTouchStartX - teamTouchEndX;
+      const visible = getTeamCardsVisible();
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          if (currentTeamIndex < totalCards - visible) {
+            currentTeamIndex++;
+          } else {
+            currentTeamIndex = 0;
+          }
+        } else {
+          if (currentTeamIndex > 0) {
+            currentTeamIndex--;
+          } else {
+            currentTeamIndex = Math.max(0, totalCards - visible);
+          }
+        }
+        updateTeamSlider();
+      }
+    }, { passive: true });
 
     window.addEventListener('resize', updateTeamSlider);
   }

@@ -22,7 +22,6 @@
     <div class="nav-container">
       <div class="nav-left">
         <a href="#" class="logo">Waveyu</a>
-        <span class="nav-date">18 May – 26 May</span>
       </div>
 
       <ul class="nav-links">
@@ -37,7 +36,6 @@
 
       <div class="nav-right">
         <a href="#contact" class="nav-contact-link">Contact</a>
-        <a href="#apply" class="btn btn-apply">Apply Now</a>
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -53,8 +51,6 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <div class="hero-date">18 May – 26 May</div>
-
       <h1 class="hero-title">
         Waveyu<br>Surf Camp
       </h1>
@@ -136,10 +132,6 @@
           <div class="table-row">
             <span class="table-label">Where</span>
             <span class="table-value">Bali, Canggu</span>
-          </div>
-          <div class="table-row">
-            <span class="table-label">When</span>
-            <span class="table-value">18 May – 26 May</span>
           </div>
           <div class="table-row">
             <span class="table-label">For whom</span>
@@ -469,12 +461,10 @@
           </div>
 
           <h2 class="experience-title">
-            Body, soul, mind, and connection — <span class="highlight-grey">we've got it all</span>
+            Body, soul, mind, and connection — <br><span class="highlight-grey">we've got it all</span>
           </h2>
-
-          <p class="experience-desc">
-            <br> <br> <br>
-          </p>
+          <br><br>
+          <p class="experience-desc"></p>
         </div>
       </div>
 
@@ -549,8 +539,7 @@
   <section class="ready-cta-section" id="ready">
     <div class="ready-cta-container">
       <div class="ready-cta-banner">
-        <img src="images/scooter_surf_cta_wide.png" alt="Your spot is waiting - Waveyu Surf Camp"
-          class="ready-bg-img">
+        <img src="images/scooter_surf_cta_wide.png" alt="Your spot is waiting - Waveyu Surf Camp" class="ready-bg-img">
         <div class="ready-overlay"></div>
 
         <div class="ready-content">
@@ -561,751 +550,783 @@
             Your spot is waiting!<br>
             Come join us!
           </h2>
-          <a href="#apply" class="btn-ready-apply">Apply Now</a>
         </div>
       </div>
     </div>
   </section>
-      <!-- Program Section (Itinerary with Floating Hover Images) -->
-      <section class="program-section" id="program">
-        <div class="program-container">
+  <!-- Program Section (Itinerary with Floating Hover Images) -->
+  <section class="program-section" id="program">
+    <div class="program-container">
 
-          <!-- Header: Badge, Heading & Download Full Program Button -->
-          <div class="program-header">
-            <div class="program-header-left">
-              <div class="program-badge">
-                <span class="star-icon">★</span> PROGRAM
-              </div>
-              <h2 class="program-title">
-                What we've <span class="highlight-grey">planned</span> for you:
-              </h2>
-            </div>
-
-            <a href="#reserve" class="btn-full-program" download>
-              <i class="fa-solid fa-download"></i>
-              <span>Full Program</span>
-            </a>
+      <!-- Header: Badge, Heading & Download Full Program Button -->
+      <div class="program-header">
+        <div class="program-header-left">
+          <div class="program-badge">
+            <span class="star-icon">★</span> PROGRAM
           </div>
-
-          <!-- Itinerary List Container (Populated dynamically via JavaScript) -->
-          <div class="program-list" id="programList">
-            <!-- Day rows will be rendered dynamically -->
-          </div>
-
-          <!-- Fixed Floating Image Card Anchored in Center-Right of Section -->
-          <div class="program-floating-card" id="programFloatingCard" aria-hidden="true">
-            <img class="program-card-img active-layer" id="programFloatingImg1" src="images/day1.jpg"
-              alt="Day Itinerary Preview">
-            <img class="program-card-img" id="programFloatingImg2" src="images/day2.jpg" alt="Day Itinerary Preview">
-          </div>
-
+          <h2 class="program-title">
+            What we've <span class="highlight-grey">planned</span> for you:
+          </h2>
         </div>
-      </section>
 
-      <!-- Instructors Section (Coaches Slider & Features) -->
-      <section class="instructors-section" id="instructors">
-        <div class="instructors-container">
-          <div class="instructors-grid">
+        <a href="#reserve" class="btn-full-program" download>
+          <i class="fa-solid fa-download"></i>
+          <span>Full Program</span>
+        </a>
+      </div>
 
-            <!-- Left Column: Interactive Image Card & Glass Overlays Slider -->
-            <div class="instructors-card-wrap reveal-element">
-              <!-- Glass Overlay: Top-Left Coach Name Pill -->
-              <div class="glass-pill top-left" id="coachNamePill">
-                Coach: Wayan Bayu
-              </div>
+      <!-- Itinerary List Container (Populated dynamically via JavaScript) -->
+      <div class="program-list" id="programList">
+        <!-- Day rows will be rendered dynamically -->
+      </div>
 
-              <!-- Glass Overlay: Top-Right Circular Plus Button -->
-              <button class="glass-circle-btn top-right" aria-label="More details about coach">
-                <i class="fa-solid fa-plus"></i>
-              </button>
+      <!-- Fixed Floating Image Card Anchored in Center-Right of Section -->
+      <div class="program-floating-card" id="programFloatingCard" aria-hidden="true">
+        <img class="program-card-img active-layer" id="programFloatingImg1" src="images/day1.jpg"
+          alt="Day Itinerary Preview">
+        <img class="program-card-img" id="programFloatingImg2" src="images/day2.jpg" alt="Day Itinerary Preview">
+      </div>
 
-              <!-- Glass Overlay: Bottom-Left Language Pill -->
-              <div class="glass-pill bottom-left" id="coachLangPill">
-                ENG / IND
-              </div>
+    </div>
+  </section>
 
-              <!-- Glass Overlay: Bottom-Right Slider Navigation Controls -->
-              <div class="slider-nav-controls bottom-right">
-                <button class="glass-circle-btn slider-prev" id="coachPrevBtn" aria-label="Previous coach">
-                  <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="glass-circle-btn slider-next" id="coachNextBtn" aria-label="Next coach">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </button>
-              </div>
+  <!-- Instructors Section (Coaches Slider & Features) -->
+  <section class="instructors-section" id="instructors">
+    <div class="instructors-container">
+      <div class="instructors-grid">
 
-              <!-- Image Layer Stack for Double-Buffered Smooth Cross-Fade -->
-              <div class="instructors-img-stack">
-                <img id="coachImg1" src="images/coach1.jpg" alt="Bali Surf Coach" class="coach-img active-img">
-                <img id="coachImg2" src="images/coach2.jpg" alt="Bali Surf Coach" class="coach-img">
-              </div>
-            </div>
+        <!-- Left Column: Interactive Image Card & Glass Overlays Slider -->
+        <div class="instructors-card-wrap reveal-element">
+          <!-- Glass Overlay: Top-Left Coach Name Pill -->
+          <div class="glass-pill top-left" id="coachNamePill">
+            Coach: Wayan Bayu
+          </div>
 
-            <!-- Right Column: Text Content, Paragraphs & 2-Column Features -->
-            <div class="instructors-content">
-              <div class="instructors-badge reveal-element reveal-delay-1">
-                <span class="star-icon">★</span> INSTRUCTORS
-              </div>
+          <!-- Glass Overlay: Top-Right Circular Plus Button -->
+          <button class="glass-circle-btn top-right" aria-label="More details about coach">
+            <i class="fa-solid fa-plus"></i>
+          </button>
 
-              <h2 class="instructors-title reveal-element reveal-delay-2">
-                Learn to ride waves with Bali's<br>
-                <span class="highlight-grey">best coaches</span>
-              </h2>
+          <!-- Glass Overlay: Bottom-Left Language Pill -->
+          <div class="glass-pill bottom-left" id="coachLangPill">
+            ENG / IND
+          </div>
 
-              <div class="instructors-paragraphs reveal-element reveal-delay-3">
-                <p>
-                  Our instructors are Bali locals who learned to surf on these waves as kids. They know which break
-                  suits your level and exactly what you need to hear — whether it's your first wave or you're working on
-                  cutbacks.
-                </p>
-                <p>
-                  They adapt to you. Total beginner? They'll walk you through every step. Already surfing? They'll push
-                  your technique further. By the end of two weeks, you won't just trust them—you'll genuinely miss
-                  surfing with them.
-                </p>
-              </div>
+          <!-- Glass Overlay: Bottom-Right Slider Navigation Controls -->
+          <div class="slider-nav-controls bottom-right">
+            <button class="glass-circle-btn slider-prev" id="coachPrevBtn" aria-label="Previous coach">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="glass-circle-btn slider-next" id="coachNextBtn" aria-label="Next coach">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
 
-              <!-- Features 2-Column Grid -->
-              <div class="instructors-features-grid reveal-element reveal-delay-4">
-
-                <!-- Feature 1: ISA-Certified Pros -->
-                <div class="feature-item">
-                  <div class="feature-icon-wrap">
-                    <i class="fa-regular fa-thumbs-up"></i>
-                  </div>
-                  <h3 class="feature-title">ISA-Certified Pros</h3>
-                  <p class="feature-desc">
-                    All instructors hold international surf certification with 5+ years teaching experience.
-                  </p>
-                </div>
-
-                <!-- Feature 2: Small Group Focus -->
-                <div class="feature-item">
-                  <div class="feature-icon-wrap">
-                    <i class="fa-regular fa-thumbs-up"></i>
-                  </div>
-                  <h3 class="feature-title">Small Group Focus</h3>
-                  <p class="feature-desc">
-                    Max 6 people per instructor. Personalized feedback, proper supervision, faster progression.
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
+          <!-- Image Layer Stack for Double-Buffered Smooth Cross-Fade -->
+          <div class="instructors-img-stack">
+            <img id="coachImg1" src="images/coach1.jpg" alt="Bali Surf Coach" class="coach-img active-img">
+            <img id="coachImg2" src="images/coach2.jpg" alt="Bali Surf Coach" class="coach-img">
           </div>
         </div>
-      </section>
 
-      <!-- Testimonials Section -->
-      <section class="testimonials-section" id="testimonials">
-        <div class="testimonials-container">
-          <div class="testimonials-grid">
-
-            <!-- Left Column (~40%): Badge, Heading, Subtitle & Video Thumbnail Card -->
-            <div class="testimonials-left reveal-element">
-              <div class="testimonials-badge">
-                <span class="star-icon">★</span> TESTIMONIALS
-              </div>
-
-              <h2 class="testimonials-title">
-                Read the stories from<br>
-                <span class="highlight-grey">past campers</span>
-              </h2>
-
-              <p class="testimonials-subtitle">
-                A glimpse into life at our camp
-              </p>
-
-              <!-- Interactive Video Thumbnail Card -->
-              <div class="video-thumb-card" id="openVideoDiaryBtn">
-                <div class="video-thumb-img-wrap">
-                  <img src="images/video_thumb.jpg" alt="Watch camper video diaries" class="video-thumb-img">
-                  <div class="video-play-overlay">
-                    <div class="video-play-icon">
-                      <i class="fa-solid fa-play"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="video-caption">
-                  <span class="caption-play-dot"><i class="fa-solid fa-play"></i></span> Watch our video diaries!
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Column (~60%): Top Navigation Controls & Smooth Testimonial Carousel -->
-            <div class="testimonials-right reveal-element reveal-delay-2">
-
-              <!-- Top-Right Navigation Controls -->
-              <div class="testimonials-nav-header">
-                <div class="testimonials-nav-btns">
-                  <button class="nav-circle-btn testimonial-prev" id="testiPrevBtn" aria-label="Previous testimonial">
-                    <i class="fa-solid fa-chevron-left"></i>
-                  </button>
-                  <button class="nav-circle-btn testimonial-next" id="testiNextBtn" aria-label="Next testimonial">
-                    <i class="fa-solid fa-chevron-right"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Carousel Track Outer Container -->
-              <div class="testimonials-carousel-viewport">
-                <div class="testimonials-track" id="testimonialTrack">
-
-                  <!-- Card 1 -->
-                  <div class="testimonial-card">
-                    <div class="card-top-row">
-                      <img src="images/avatar1.jpg" alt="Daniel Kim avatar" class="card-avatar">
-                      <span class="card-pill">camp '25</span>
-                    </div>
-                    <div class="quote-mark">”</div>
-                    <p class="card-quote-text">
-                      Best decision I made this year. I was burnt out from work and needed a reset – this camp delivered
-                      exactly that. The coaches really know their stuff, the vibe is super chill, and I made friends
-                      from all over the world. Went from barely standing on a board to actually riding waves. Already
-                      booked my spot for next season.
-                    </p>
-                    <div class="card-author-info">
-                      <h4 class="author-name">Daniel Kim</h4>
-                      <span class="author-meta">Waveyu, August 2025</span>
-                    </div>
-                  </div>
-
-                  <!-- Card 2 -->
-                  <div class="testimonial-card">
-                    <div class="card-top-row">
-                      <img src="images/avatar2.jpg" alt="Emma Rodriguez avatar" class="card-avatar">
-                      <span class="card-pill">camp '25</span>
-                    </div>
-                    <div class="quote-mark">”</div>
-                    <p class="card-quote-text">
-                      I was nervous about traveling alone, but this crew made me feel at home immediately. We surfed
-                      every morning, explored the island, and had the kind of deep conversations you usually only have
-                      with old friends. Already planning my next trip back.
-                    </p>
-                    <div class="card-author-info">
-                      <h4 class="author-name">Emma Rodriguez</h4>
-                      <span class="author-meta">Waveyu, March 2025</span>
-                    </div>
-                  </div>
-
-                  <!-- Card 3 -->
-                  <div class="testimonial-card">
-                    <div class="card-top-row">
-                      <img src="images/avatar3.jpg" alt="Lucas Vance avatar" class="card-avatar">
-                      <span class="card-pill">camp '25</span>
-                    </div>
-                    <div class="quote-mark">”</div>
-                    <p class="card-quote-text">
-                      Unbelievable experience! The 1-on-1 drone video reviews completely transformed my surf mechanics
-                      in just 3 days. Plus, the villa sunset dinners and night beach socials were top tier. Can't
-                      recommend Waveyu enough.
-                    </p>
-                    <div class="card-author-info">
-                      <h4 class="author-name">Lucas Vance</h4>
-                      <span class="author-meta">Waveyu, October 2025</span>
-                    </div>
-                  </div>
-
-                  <!-- Card 4 -->
-                  <div class="testimonial-card">
-                    <div class="card-top-row">
-                      <img src="images/avatar2.jpg" alt="Sophia Martinez avatar" class="card-avatar">
-                      <span class="card-pill">camp '25</span>
-                    </div>
-                    <div class="quote-mark">”</div>
-                    <p class="card-quote-text">
-                      The community here is unbelievable. From dawn surf sessions to late night beach bonfires, every
-                      single day was packed with pure magic. I came as a solo traveler and left with a lifelong crew.
-                    </p>
-                    <div class="card-author-info">
-                      <h4 class="author-name">Sophia Martinez</h4>
-                      <span class="author-meta">Waveyu, November 2025</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
+        <!-- Right Column: Text Content, Paragraphs & 2-Column Features -->
+        <div class="instructors-content">
+          <div class="instructors-badge reveal-element reveal-delay-1">
+            <span class="star-icon">★</span> INSTRUCTORS
           </div>
-        </div>
-      </section>
 
-      <!-- Steps Section -->
-      <section class="steps-section" id="steps">
-        <div class="steps-container">
-          <div class="steps-grid">
+          <h2 class="instructors-title reveal-element reveal-delay-2">
+            Learn to ride waves with Bali's<br>
+            <span class="highlight-grey">best coaches</span>
+          </h2>
 
-            <!-- Left Column (~40%): Badge, Heading & Paragraph -->
-            <div class="steps-left reveal-element">
-              <div class="steps-badge">
-                <span class="star-icon">★</span> STEPS
-              </div>
-
-              <h2 class="steps-title">
-                Make it happen in<br>
-                just <span class="highlight-grey">four steps</span>
-              </h2>
-
-              <p class="steps-desc">
-                We've made the entire process smooth and hassle-free. Our team guides you through every step from
-                booking to arrival — just show up ready for waves.
-              </p>
-            </div>
-
-            <!-- Right Column (~60%): Vertical 4-Step Process Timeline -->
-            <div class="steps-right">
-              <div class="steps-list">
-
-                <!-- Step 01 -->
-                <div class="step-item reveal-element">
-                  <div class="step-num-circle">01</div>
-                  <div class="step-info">
-                    <h3 class="step-item-title">Choose your package</h3>
-                    <p class="step-item-desc">
-                      We have three options: Neighbor (twin room with 2 single beds), Double (king bed for couples or
-                      solo travelers), and Squad (group suite for friends). Pick what fits your budget and travel style.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Step 02 -->
-                <div class="step-item reveal-element reveal-delay-1">
-                  <div class="step-num-circle">02</div>
-                  <div class="step-info">
-                    <h3 class="step-item-title">Leave your contact details</h3>
-                    <p class="step-item-desc">
-                      Fill out a quick form with your name, email, surf level, and preferred package. Our manager will
-                      reach out within 24 hours to answer all your questions, confirm availability, and guide you
-                      through the next steps.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Step 03 -->
-                <div class="step-item reveal-element reveal-delay-2">
-                  <div class="step-num-circle">03</div>
-                  <div class="step-info">
-                    <h3 class="step-item-title">Complete payment</h3>
-                    <p class="step-item-desc">
-                      Once everything is confirmed, secure your spot with payment. You'll receive a welcome pack with
-                      all camp details and a packing list, and be added to your camp WhatsApp group to meet everyone
-                      before departure.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Step 04 -->
-                <div class="step-item reveal-element reveal-delay-3">
-                  <div class="step-num-circle">04</div>
-                  <div class="step-info">
-                    <h3 class="step-item-title">Get ready to go</h3>
-                    <p class="step-item-desc">
-                      We'll send arrival instructions and arrange airport pickup. Just bring yourself and good vibes —
-                      we'll take care of everything else. See you in Canggu!
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ Section -->
-      <section class="faq-section" id="faq">
-        <div class="faq-container">
-          <div class="faq-grid">
-
-            <!-- Left Column (~38%) -->
-            <div class="faq-left reveal-element">
-              <div class="faq-badge">
-                <span class="star-icon">★</span> FAQ
-              </div>
-
-              <h2 class="faq-title">
-                Frequently<br>
-                Asked Questions
-              </h2>
-
-              <!-- Floating Contact Card -->
-              <div class="faq-contact-card">
-                <div class="faq-wave-icon">👋</div>
-                <h4 class="faq-card-title">Still have questions?</h4>
-                <p class="faq-card-desc">
-                  Whether it's about the program, accommodation, or anything in between — we're happy to help.
-                </p>
-                <div class="faq-card-footer">
-                  <span class="faq-contact-text">Contact Us</span>
-                  <button class="faq-arrow-btn" aria-label="Contact Us">
-                    <i class="fa-solid fa-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Column (~62%): Accordion List -->
-            <div class="faq-right">
-              <div class="faq-accordion-list">
-
-                <!-- FAQ 01 (Default Active) -->
-                <div class="faq-item active reveal-element">
-                  <span class="faq-num">01</span>
-                  <div class="faq-question-row">
-                    <h3 class="faq-question">Do I need to know how to surf already?</h3>
-                    <button class="faq-toggle-btn" aria-label="Toggle answer">
-                      <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div class="faq-answer">
-                    <p>
-                      Not at all! Most people who come are complete beginners or have only surfed a few times. Our instructors work with all levels, and we split into groups so you're learning with people at your pace. If you can swim and are willing to try, you're ready.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- FAQ 02 -->
-                <div class="faq-item reveal-element reveal-delay-1">
-                  <span class="faq-num">02</span>
-                  <div class="faq-question-row">
-                    <h3 class="faq-question">I'm traveling alone — will I feel out of place?</h3>
-                    <button class="faq-toggle-btn" aria-label="Toggle answer">
-                      <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div class="faq-answer">
-                    <p>
-                      Over 70% of our guests travel solo! From shared villa breakfasts to group surf sessions and night beach bonfires, our retreat is designed to build lifelong friendships effortlessly.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- FAQ 03 -->
-                <div class="faq-item reveal-element reveal-delay-2">
-                  <span class="faq-num">03</span>
-                  <div class="faq-question-row">
-                    <h3 class="faq-question">What's not included in the price?</h3>
-                    <button class="faq-toggle-btn" aria-label="Toggle answer">
-                      <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div class="faq-answer">
-                    <p>
-                      Flights, travel insurance, personal alcoholic beverages, and dinner on two open nights are not included. All daily breakfasts, lunches, coaching, equipment, and airport transfers are fully covered.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- FAQ 04 -->
-                <div class="faq-item reveal-element reveal-delay-3">
-                  <span class="faq-num">04</span>
-                  <div class="faq-question-row">
-                    <h3 class="faq-question">What if the dates don't work for me?</h3>
-                    <button class="faq-toggle-btn" aria-label="Toggle answer">
-                      <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div class="faq-answer">
-                    <p>
-                      We run weekly retreat cycles throughout the season. Contact our team to check custom arrival dates or join our waitlist for upcoming pop-up sessions.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- FAQ 05 -->
-                <div class="faq-item reveal-element reveal-delay-4">
-                  <span class="faq-num">05</span>
-                  <div class="faq-question-row">
-                    <h3 class="faq-question">Is Bali safe for travelers?</h3>
-                    <button class="faq-toggle-btn" aria-label="Toggle answer">
-                      <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div class="faq-answer">
-                    <p>
-                      Yes, Bali is widely known as one of the safest travel destinations in the world. Our villa is located in a private gated compound with 24/7 security and dedicated staff.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Team Section -->
-      <section class="team-section" id="team">
-        <div class="team-container">
-
-          <!-- Header Row -->
-          <div class="team-header reveal-element">
-            <div class="team-header-left">
-              <div class="team-badge">
-                <span class="star-icon">★</span> TEAM
-              </div>
-              <h2 class="team-title">Meet the team</h2>
-            </div>
-
-            <p class="team-subtitle">
-              The ones who planned a surf camp, not a photoshoot
+          <div class="instructors-paragraphs reveal-element reveal-delay-3">
+            <p>
+              Our instructors are Bali locals who learned to surf on these waves as kids. They know which break
+              suits your level and exactly what you need to hear — whether it's your first wave or you're working on
+              cutbacks.
             </p>
+            <p>
+              They adapt to you. Total beginner? They'll walk you through every step. Already surfing? They'll push
+              your technique further. By the end of two weeks, you won't just trust them—you'll genuinely miss
+              surfing with them.
+            </p>
+          </div>
 
-            <div class="team-nav-btns">
-              <button class="nav-circle-btn team-prev" id="teamPrevBtn" aria-label="Previous member">
+          <!-- Features 2-Column Grid -->
+          <div class="instructors-features-grid reveal-element reveal-delay-4">
+
+            <!-- Feature 1: ISA-Certified Pros -->
+            <div class="feature-item">
+              <div class="feature-icon-wrap">
+                <i class="fa-regular fa-thumbs-up"></i>
+              </div>
+              <h3 class="feature-title">ISA-Certified Pros</h3>
+              <p class="feature-desc">
+                All instructors hold international surf certification with 5+ years teaching experience.
+              </p>
+            </div>
+
+            <!-- Feature 2: Small Group Focus -->
+            <div class="feature-item">
+              <div class="feature-icon-wrap">
+                <i class="fa-regular fa-thumbs-up"></i>
+              </div>
+              <h3 class="feature-title">Small Group Focus</h3>
+              <p class="feature-desc">
+                Max 6 people per instructor. Personalized feedback, proper supervision, faster progression.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-container">
+      <div class="testimonials-grid">
+
+        <!-- Left Column (~40%): Badge, Heading, Subtitle & Video Thumbnail Card -->
+        <div class="testimonials-left reveal-element">
+          <div class="testimonials-badge">
+            <span class="star-icon">★</span> TESTIMONIALS
+          </div>
+
+          <h2 class="testimonials-title">
+            Read the stories from<br>
+            <span class="highlight-grey">past campers</span>
+          </h2>
+
+          <p class="testimonials-subtitle">
+            A glimpse into life at our camp
+          </p>
+
+          <!-- Interactive Video Thumbnail Card -->
+          <div class="video-thumb-card" id="openVideoDiaryBtn">
+            <div class="video-thumb-img-wrap">
+              <img src="images/video_thumb.jpg" alt="Watch camper video diaries" class="video-thumb-img">
+              <div class="video-play-overlay">
+                <div class="video-play-icon">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+            </div>
+            <div class="video-caption">
+              <span class="caption-play-dot"><i class="fa-solid fa-play"></i></span> Watch our video diaries!
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (~60%): Top Navigation Controls & Smooth Testimonial Carousel -->
+        <div class="testimonials-right reveal-element reveal-delay-2">
+
+          <!-- Top-Right Navigation Controls -->
+          <div class="testimonials-nav-header">
+            <div class="testimonials-nav-btns">
+              <button class="nav-circle-btn testimonial-prev" id="testiPrevBtn" aria-label="Previous testimonial">
                 <i class="fa-solid fa-chevron-left"></i>
               </button>
-              <button class="nav-circle-btn team-next" id="teamNextBtn" aria-label="Next member">
+              <button class="nav-circle-btn testimonial-next" id="testiNextBtn" aria-label="Next testimonial">
                 <i class="fa-solid fa-chevron-right"></i>
               </button>
             </div>
           </div>
 
-          <!-- Team Slider / Grid Viewport -->
-          <div class="team-carousel-viewport">
-            <div class="team-track" id="teamTrack">
+          <!-- Carousel Track Outer Container -->
+          <div class="testimonials-carousel-viewport">
+            <div class="testimonials-track" id="testimonialTrack">
 
-              <!-- Card 1: Kaspars -->
-              <div class="team-card reveal-element">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Kaspars Founder" class="team-card-img">
-                <div class="team-glass-pill top-left">Kaspars</div>
-                <button class="team-glass-btn top-right" aria-label="More info">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <div class="team-glass-pill bottom-right">Founder</div>
+              <!-- Card 1 -->
+              <div class="testimonial-card">
+                <div class="card-top-row">
+                  <img src="images/avatar1.jpg" alt="Daniel Kim avatar" class="card-avatar">
+                  <span class="card-pill">camp '25</span>
+                </div>
+                <div class="quote-mark">”</div>
+                <p class="card-quote-text">
+                  Best decision I made this year. I was burnt out from work and needed a reset – this camp delivered
+                  exactly that. The coaches really know their stuff, the vibe is super chill, and I made friends
+                  from all over the world. Went from barely standing on a board to actually riding waves. Already
+                  booked my spot for next season.
+                </p>
+                <div class="card-author-info">
+                  <h4 class="author-name">Daniel Kim</h4>
+                  <span class="author-meta">Waveyu, August 2025</span>
+                </div>
               </div>
 
-              <!-- Card 2: Christina -->
-              <div class="team-card reveal-element reveal-delay-1">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Christina SMM guru" class="team-card-img">
-                <div class="team-glass-pill top-left">Christina</div>
-                <button class="team-glass-btn top-right" aria-label="More info">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <div class="team-glass-pill bottom-right">SMM guru</div>
+              <!-- Card 2 -->
+              <div class="testimonial-card">
+                <div class="card-top-row">
+                  <img src="images/avatar2.jpg" alt="Emma Rodriguez avatar" class="card-avatar">
+                  <span class="card-pill">camp '25</span>
+                </div>
+                <div class="quote-mark">”</div>
+                <p class="card-quote-text">
+                  I was nervous about traveling alone, but this crew made me feel at home immediately. We surfed
+                  every morning, explored the island, and had the kind of deep conversations you usually only have
+                  with old friends. Already planning my next trip back.
+                </p>
+                <div class="card-author-info">
+                  <h4 class="author-name">Emma Rodriguez</h4>
+                  <span class="author-meta">Waveyu, March 2025</span>
+                </div>
               </div>
 
-              <!-- Card 3: Noah -->
-              <div class="team-card reveal-element reveal-delay-2">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" alt="Noah Sales Manager" class="team-card-img">
-                <div class="team-glass-pill top-left">Noah</div>
-                <button class="team-glass-btn top-right" aria-label="More info">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <div class="team-glass-pill bottom-right">Sales Manager</div>
+              <!-- Card 3 -->
+              <div class="testimonial-card">
+                <div class="card-top-row">
+                  <img src="images/avatar3.jpg" alt="Lucas Vance avatar" class="card-avatar">
+                  <span class="card-pill">camp '25</span>
+                </div>
+                <div class="quote-mark">”</div>
+                <p class="card-quote-text">
+                  Unbelievable experience! The 1-on-1 drone video reviews completely transformed my surf mechanics
+                  in just 3 days. Plus, the villa sunset dinners and night beach socials were top tier. Can't
+                  recommend Waveyu enough.
+                </p>
+                <div class="card-author-info">
+                  <h4 class="author-name">Lucas Vance</h4>
+                  <span class="author-meta">Waveyu, October 2025</span>
+                </div>
               </div>
 
-              <!-- Card 4: Wayan -->
-              <div class="team-card reveal-element reveal-delay-3">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Wayan Head Coach" class="team-card-img">
-                <div class="team-glass-pill top-left">Wayan</div>
-                <button class="team-glass-btn top-right" aria-label="More info">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <div class="team-glass-pill bottom-right">Head Coach</div>
+              <!-- Card 4 -->
+              <div class="testimonial-card">
+                <div class="card-top-row">
+                  <img src="images/avatar2.jpg" alt="Sophia Martinez avatar" class="card-avatar">
+                  <span class="card-pill">camp '25</span>
+                </div>
+                <div class="quote-mark">”</div>
+                <p class="card-quote-text">
+                  The community here is unbelievable. From dawn surf sessions to late night beach bonfires, every
+                  single day was packed with pure magic. I came as a solo traveler and left with a lifelong crew.
+                </p>
+                <div class="card-author-info">
+                  <h4 class="author-name">Sophia Martinez</h4>
+                  <span class="author-meta">Waveyu, November 2025</span>
+                </div>
               </div>
 
-            </div>
-      </section>
-
-      <!-- Ready To Go With Us - Full Bleed CTA & Social Section -->
-      <section class="ready-cta-section" id="ready-cta">
-        <div class="ready-cta-container">
-
-          <!-- Floating Left Image with Surfing Emoji Badge -->
-          <div class="cta-floating-left reveal-element">
-            <div class="cta-badge-surf">🏄‍♂️</div>
-            <div class="cta-img-card left-card">
-              <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80" alt="Surfer carrying board on tropical path" class="cta-img">
             </div>
           </div>
 
-          <!-- Center Content Block -->
-          <div class="cta-center-content reveal-element">
-            <!-- Floating Shaka Emoji Badge -->
-            <div class="cta-badge-shaka">🤙</div>
+        </div>
 
-            <h2 class="cta-main-title">
-              <span class="highlight-grey-ready">Ready</span><br>
-              to go with us?
-            </h2>
+      </div>
+    </div>
+  </section>
 
-            <p class="cta-main-subtitle">
-              Waveyu. The waves are good. The people are better.
+  <!-- Steps Section -->
+  <section class="steps-section" id="steps">
+    <div class="steps-container">
+      <div class="steps-grid">
+
+        <!-- Left Column (~40%): Badge, Heading & Paragraph -->
+        <div class="steps-left reveal-element">
+          <div class="steps-badge">
+            <span class="star-icon">★</span> STEPS
+          </div>
+
+          <h2 class="steps-title">
+            Make it happen in<br>
+            just <span class="highlight-grey">four steps</span>
+          </h2>
+
+          <p class="steps-desc">
+            We've made the entire process smooth and hassle-free. Our team guides you through every step from
+            booking to arrival — just show up ready for waves.
+          </p>
+        </div>
+
+        <!-- Right Column (~60%): Vertical 4-Step Process Timeline -->
+        <div class="steps-right">
+          <div class="steps-list">
+
+            <!-- Step 01 -->
+            <div class="step-item reveal-element">
+              <div class="step-num-circle">01</div>
+              <div class="step-info">
+                <h3 class="step-item-title">Choose your package</h3>
+                <p class="step-item-desc">
+                  We have three options: Neighbor (twin room with 2 single beds), Double (king bed for couples or
+                  solo travelers), and Squad (group suite for friends). Pick what fits your budget and travel style.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="step-item reveal-element reveal-delay-1">
+              <div class="step-num-circle">02</div>
+              <div class="step-info">
+                <h3 class="step-item-title">Leave your contact details</h3>
+                <p class="step-item-desc">
+                  Fill out a quick form with your name, email, surf level, and preferred package. Our manager will
+                  reach out within 24 hours to answer all your questions, confirm availability, and guide you
+                  through the next steps.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="step-item reveal-element reveal-delay-2">
+              <div class="step-num-circle">03</div>
+              <div class="step-info">
+                <h3 class="step-item-title">Complete payment</h3>
+                <p class="step-item-desc">
+                  Once everything is confirmed, secure your spot with payment. You'll receive a welcome pack with
+                  all camp details and a packing list, and be added to your camp WhatsApp group to meet everyone
+                  before departure.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="step-item reveal-element reveal-delay-3">
+              <div class="step-num-circle">04</div>
+              <div class="step-info">
+                <h3 class="step-item-title">Get ready to go</h3>
+                <p class="step-item-desc">
+                  We'll send arrival instructions and arrange airport pickup. Just bring yourself and good vibes —
+                  we'll take care of everything else. See you in Canggu!
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="faq-container">
+      <div class="faq-grid">
+
+        <!-- Left Column (~38%) -->
+        <div class="faq-left reveal-element">
+          <div class="faq-badge">
+            <span class="star-icon">★</span> FAQ
+          </div>
+
+          <h2 class="faq-title">
+            Frequently<br>
+            Asked Questions
+          </h2>
+
+          <!-- Floating Contact Card -->
+          <div class="faq-contact-card">
+            <div class="faq-wave-icon">👋</div>
+            <h4 class="faq-card-title">Still have questions?</h4>
+            <p class="faq-card-desc">
+              Whether it's about the program, accommodation, or anything in between — we're happy to help.
             </p>
-
-            <button class="cta-apply-btn">Apply Now</button>
-          </div>
-
-          <!-- Floating Right Image Card -->
-          <div class="cta-floating-right reveal-element">
-            <div class="cta-img-card right-card">
-              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Happy friends smiling together at surf camp" class="cta-img">
+            <div class="faq-card-footer">
+              <span class="faq-contact-text">Contact Us</span>
+              <button class="faq-arrow-btn" aria-label="Contact Us">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
             </div>
           </div>
-
-          <!-- Bottom Footer Row (Social Media) -->
-          <div class="cta-bottom-row reveal-element reveal-delay-2">
-            <div class="cta-social-label">
-              Follow us<br>on Social Media
-            </div>
-
-            <div class="cta-social-icons">
-              <a href="#" class="social-circle-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="social-circle-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#" class="social-circle-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" class="social-circle-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-          </div>
-
         </div>
-      </section>
 
-      <!-- Footer (Pixel-Perfect Waveyu Dark Green Footer with Radial Lighting & Interactive Typography) -->
-      <footer class="wv-footer">
-        <!-- Radial Lighting Overlays -->
-        <div class="wv-footer-bg-glow glow-top-right"></div>
-        <div class="wv-footer-bg-glow glow-bottom-left"></div>
-        <div class="wv-footer-bg-glow glow-center"></div>
+        <!-- Right Column (~62%): Accordion List -->
+        <div class="faq-right">
+          <div class="faq-accordion-list">
 
-        <div class="wv-footer-container">
-          
-          <!-- Top Row: 3 Columns (Left: Brand & Contact, Center: THE CAMP, Right: THE TEAM) -->
-          <div class="wv-footer-top-grid">
-            
-            <!-- Left Column: Brand, Address & Contact Details -->
-            <div class="wv-footer-brand-col">
-              <h2 class="wv-footer-brand-logo">Waveyu</h2>
-              <address class="wv-footer-address">
-                Waveyu Surf Camp<br>
-                Jalan Pantai Batu Bolong No. 27,<br>
-                Canggu, Kuta Utara, Badung, Bali 80361, Indonesia
-              </address>
-
-              <div class="wv-footer-contact-list">
-                <a href="mailto:waveyutemplate@gmail.com" class="wv-contact-link">
-                  <span class="wv-contact-icon"><i class="fa-regular fa-envelope"></i></span>
-                  <span>waveyutemplate@gmail.com</span>
-                </a>
-                <a href="tel:+6281100000000" class="wv-contact-link">
-                  <span class="wv-contact-icon"><i class="fa-solid fa-phone"></i></span>
-                  <span>+62 811 0000 0000</span>
-                </a>
-                <a href="https://wa.me/6282200000000" class="wv-contact-link">
-                  <span class="wv-contact-icon"><i class="fa-solid fa-comment-dots"></i></span>
-                  <span>+62 822 0000 0000</span>
-                </a>
+            <!-- FAQ 01 (Default Active) -->
+            <div class="faq-item active reveal-element">
+              <span class="faq-num">01</span>
+              <div class="faq-question-row">
+                <h3 class="faq-question">Do I need to know how to surf already?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle answer">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Not at all! Most people who come are complete beginners or have only surfed a few times. Our
+                  instructors work with all levels, and we split into groups so you're learning with people at your
+                  pace. If you can swim and are willing to try, you're ready.
+                </p>
               </div>
             </div>
 
-            <!-- Center Column: THE CAMP Navigation Links -->
-            <div class="wv-footer-nav-col">
-              <h4 class="wv-col-header">THE CAMP</h4>
-              <ul class="wv-footer-menu">
-                <li>
-                  <a href="#stay" class="wv-menu-item">
-                    <span class="wv-menu-text">Accommodation</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#program" class="wv-menu-item">
-                    <span class="wv-menu-text">Camp Program</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#faq" class="wv-menu-item">
-                    <span class="wv-menu-text">FAQ</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" class="wv-menu-item">
-                    <span class="wv-menu-text">Pricing</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-              </ul>
+            <!-- FAQ 02 -->
+            <div class="faq-item reveal-element reveal-delay-1">
+              <span class="faq-num">02</span>
+              <div class="faq-question-row">
+                <h3 class="faq-question">I'm traveling alone — will I feel out of place?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle answer">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Over 70% of our guests travel solo! From shared villa breakfasts to group surf sessions and night
+                  beach bonfires, our retreat is designed to build lifelong friendships effortlessly.
+                </p>
+              </div>
             </div>
 
-            <!-- Right Column: THE TEAM Navigation Links -->
-            <div class="wv-footer-nav-col">
-              <h4 class="wv-col-header">THE TEAM</h4>
-              <ul class="wv-footer-menu">
-                <li>
-                  <a href="#instructors" class="wv-menu-item">
-                    <span class="wv-menu-text">Surf Instructors</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#team" class="wv-menu-item">
-                    <span class="wv-menu-text">Team Waveyu</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#testimonials" class="wv-menu-item">
-                    <span class="wv-menu-text">Testimonials</span>
-                    <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                  </a>
-                </li>
-              </ul>
+            <!-- FAQ 03 -->
+            <div class="faq-item reveal-element reveal-delay-2">
+              <span class="faq-num">03</span>
+              <div class="faq-question-row">
+                <h3 class="faq-question">What's not included in the price?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle answer">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Flights, travel insurance, personal alcoholic beverages, and dinner on two open nights are not
+                  included. All daily breakfasts, lunches, coaching, equipment, and airport transfers are fully covered.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 04 -->
+            <div class="faq-item reveal-element reveal-delay-3">
+              <span class="faq-num">04</span>
+              <div class="faq-question-row">
+                <h3 class="faq-question">What if the dates don't work for me?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle answer">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We run weekly retreat cycles throughout the season. Contact our team to check custom arrival dates or
+                  join our waitlist for upcoming pop-up sessions.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 05 -->
+            <div class="faq-item reveal-element reveal-delay-4">
+              <span class="faq-num">05</span>
+              <div class="faq-question-row">
+                <h3 class="faq-question">Is Bali safe for travelers?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle answer">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, Bali is widely known as one of the safest travel destinations in the world. Our villa is located
+                  in a private gated compound with 24/7 security and dedicated staff.
+                </p>
+              </div>
             </div>
 
           </div>
-
-          <!-- Middle / Bottom Area: Large Faded Edge-to-Edge Typography "waveyu" with Interactive Proximity Hover -->
-          <div class="wv-huge-typography-wrapper" id="waveyuHugeTypography">
-            <span class="wv-char">w</span>
-            <span class="wv-char">a</span>
-            <span class="wv-char">v</span>
-            <span class="wv-char">e</span>
-            <span class="wv-char">y</span>
-            <span class="wv-char">u</span>
-          </div>
-
-          <!-- Bottom Area: Legal Links (Left) -->
-          <div class="wv-footer-bottom-bar">
-            <div class="wv-legal-links">
-              <a href="#">Instructions</a>
-              <span class="wv-divider">|</span>
-              <a href="#">Style Guide</a>
-              <span class="wv-divider">|</span>
-              <a href="#">Licenses</a>
-              <span class="wv-divider">|</span>
-              <a href="#">Changelog</a>
-            </div>
-          </div>
-
         </div>
-      </footer>
 
-      <!-- Video Modal -->
-      <div class="modal-overlay" id="videoModal">
-        <div class="modal-content">
-          <button class="close-modal" id="closeModalBtn">&times;</button>
-          <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Verdant Surf 2026 Teaser</h3>
-          <div
-            style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-sm); background: #000;">
-            <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Surf Teaser" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section" id="team">
+    <div class="team-container">
+
+      <!-- Header Row -->
+      <div class="team-header reveal-element">
+        <div class="team-header-left">
+          <div class="team-badge">
+            <span class="star-icon">★</span> TEAM
           </div>
+          <h2 class="team-title">Meet the team</h2>
+        </div>
+
+        <p class="team-subtitle">
+          The ones who planned a surf camp, not a photoshoot
+        </p>
+
+        <div class="team-nav-btns">
+          <button class="nav-circle-btn team-prev" id="teamPrevBtn" aria-label="Previous member">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="nav-circle-btn team-next" id="teamNextBtn" aria-label="Next member">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </div>
 
-      <!-- Toast Notification -->
-      <div class="toast" id="toast"></div>
+      <!-- Team Slider / Grid Viewport -->
+      <div class="team-carousel-viewport">
+        <div class="team-track" id="teamTrack">
 
-      <!-- Custom Script -->
-      <script src="script.js"></script>
+          <!-- Card 1: Kaspars -->
+          <div class="team-card reveal-element">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+              alt="Kaspars Founder" class="team-card-img">
+            <div class="team-glass-pill top-left">Kaspars</div>
+            <button class="team-glass-btn top-right" aria-label="More info">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="team-glass-pill bottom-right">Founder</div>
+          </div>
+
+          <!-- Card 2: Christina -->
+          <div class="team-card reveal-element reveal-delay-1">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
+              alt="Christina SMM guru" class="team-card-img">
+            <div class="team-glass-pill top-left">Christina</div>
+            <button class="team-glass-btn top-right" aria-label="More info">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="team-glass-pill bottom-right">SMM guru</div>
+          </div>
+
+          <!-- Card 3: Noah -->
+          <div class="team-card reveal-element reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80"
+              alt="Noah Sales Manager" class="team-card-img">
+            <div class="team-glass-pill top-left">Noah</div>
+            <button class="team-glass-btn top-right" aria-label="More info">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="team-glass-pill bottom-right">Sales Manager</div>
+          </div>
+
+          <!-- Card 4: Wayan -->
+          <div class="team-card reveal-element reveal-delay-3">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"
+              alt="Wayan Head Coach" class="team-card-img">
+            <div class="team-glass-pill top-left">Wayan</div>
+            <button class="team-glass-btn top-right" aria-label="More info">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="team-glass-pill bottom-right">Head Coach</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ready To Go With Us - Full Bleed CTA & Social Section -->
+  <section class="ready-cta-section" id="ready-cta">
+    <div class="ready-cta-container">
+
+      <!-- Floating Left Image with Surfing Emoji Badge -->
+      <div class="cta-floating-left reveal-element">
+        <div class="cta-badge-surf">🏄‍♂️</div>
+        <div class="cta-img-card left-card">
+          <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80"
+            alt="Surfer carrying board on tropical path" class="cta-img">
+        </div>
+      </div>
+
+      <!-- Center Content Block -->
+      <div class="cta-center-content reveal-element">
+        <!-- Floating Shaka Emoji Badge -->
+        <div class="cta-badge-shaka">🤙</div>
+
+        <h2 class="cta-main-title">
+          <span class="highlight-grey-ready">Ready</span><br>
+          to go with us?
+        </h2>
+
+        <p class="cta-main-subtitle">
+          Waveyu. The waves are good. The people are better.
+        </p>
+      </div>
+
+      <!-- Floating Right Image Card -->
+      <div class="cta-floating-right reveal-element">
+        <div class="cta-img-card right-card">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+            alt="Happy friends smiling together at surf camp" class="cta-img">
+        </div>
+      </div>
+
+      <!-- Bottom Footer Row (Social Media) -->
+      <div class="cta-bottom-row reveal-element reveal-delay-2">
+        <div class="cta-social-label">
+          Follow us<br>on Social Media
+        </div>
+
+        <div class="cta-social-icons">
+          <a href="#" class="social-circle-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-circle-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-circle-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-circle-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer (Pixel-Perfect Waveyu Dark Green Footer with Radial Lighting & Interactive Typography) -->
+  <footer class="wv-footer">
+    <!-- Radial Lighting Overlays -->
+    <div class="wv-footer-bg-glow glow-top-right"></div>
+    <div class="wv-footer-bg-glow glow-bottom-left"></div>
+    <div class="wv-footer-bg-glow glow-center"></div>
+
+    <div class="wv-footer-container">
+
+      <!-- Top Row: 3 Columns (Left: Brand & Contact, Center: THE CAMP, Right: THE TEAM) -->
+      <div class="wv-footer-top-grid">
+
+        <!-- Left Column: Brand, Address & Contact Details -->
+        <div class="wv-footer-brand-col">
+          <h2 class="wv-footer-brand-logo">Waveyu</h2>
+          <address class="wv-footer-address">
+            Waveyu Surf Camp<br>
+            Jalan Pantai Batu Bolong No. 27,<br>
+            Canggu, Kuta Utara, Badung, Bali 80361, Indonesia
+          </address>
+
+          <div class="wv-footer-contact-list">
+            <a href="mailto:waveyutemplate@gmail.com" class="wv-contact-link">
+              <span class="wv-contact-icon"><i class="fa-regular fa-envelope"></i></span>
+              <span>waveyutemplate@gmail.com</span>
+            </a>
+            <a href="tel:+6281100000000" class="wv-contact-link">
+              <span class="wv-contact-icon"><i class="fa-solid fa-phone"></i></span>
+              <span>+62 811 0000 0000</span>
+            </a>
+            <a href="https://wa.me/6282200000000" class="wv-contact-link">
+              <span class="wv-contact-icon"><i class="fa-solid fa-comment-dots"></i></span>
+              <span>+62 822 0000 0000</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: THE CAMP Navigation Links -->
+        <div class="wv-footer-nav-col">
+          <h4 class="wv-col-header">THE CAMP</h4>
+          <ul class="wv-footer-menu">
+            <li>
+              <a href="#stay" class="wv-menu-item">
+                <span class="wv-menu-text">Accommodation</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#program" class="wv-menu-item">
+                <span class="wv-menu-text">Camp Program</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#faq" class="wv-menu-item">
+                <span class="wv-menu-text">FAQ</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#pricing" class="wv-menu-item">
+                <span class="wv-menu-text">Pricing</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Column: THE TEAM Navigation Links -->
+        <div class="wv-footer-nav-col">
+          <h4 class="wv-col-header">THE TEAM</h4>
+          <ul class="wv-footer-menu">
+            <li>
+              <a href="#instructors" class="wv-menu-item">
+                <span class="wv-menu-text">Surf Instructors</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#team" class="wv-menu-item">
+                <span class="wv-menu-text">Team Waveyu</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#testimonials" class="wv-menu-item">
+                <span class="wv-menu-text">Testimonials</span>
+                <svg class="wv-menu-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                  stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Middle / Bottom Area: Large Faded Edge-to-Edge Typography "waveyu" with Interactive Proximity Hover -->
+      <div class="wv-huge-typography-wrapper" id="waveyuHugeTypography">
+        <span class="wv-char">w</span>
+        <span class="wv-char">a</span>
+        <span class="wv-char">v</span>
+        <span class="wv-char">e</span>
+        <span class="wv-char">y</span>
+        <span class="wv-char">u</span>
+      </div>
+
+      <!-- Bottom Area: Legal Links (Left) -->
+      <div class="wv-footer-bottom-bar">
+        <div class="wv-legal-links">
+          <a href="#">Instructions</a>
+          <span class="wv-divider">|</span>
+          <a href="#">Style Guide</a>
+          <span class="wv-divider">|</span>
+          <a href="#">Licenses</a>
+          <span class="wv-divider">|</span>
+          <a href="#">Changelog</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+      <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Verdant Surf 2026 Teaser</h3>
+      <div
+        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-sm); background: #000;">
+        <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Surf Teaser" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
 </body>
 
 </html>
